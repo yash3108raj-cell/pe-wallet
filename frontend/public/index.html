@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BG Cash - Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+
+  <!-- Header -->
+  <div class="top-bar">
+    <span class="back">←</span>
+    <h2>PE WALLET</h2>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo.png" alt="pe wallet">
+  </div>
+
+  <!-- Welcome -->
+  <h1>Welcome Back!</h1>
+  <p class="subtitle">Enter your registered account to sign in</p>
+
+  <!-- Username -->
+  <div class="input-box">
+    <label>Username</label>
+    <input id="m" type="text" placeholder="Enter your Username">
+  </div>
+
+  <!-- Password -->
+  <div class="input-box">
+    <div class="row">
+      <label>Password</label>
+      <a href="forgot.html" class="forgot">Forget password ?</a>
+    </div>
+    <input id="p" type="password" placeholder="Enter Your Password">
+  </div>
+
+  <!-- Remember -->
+  <div class="remember">
+    <input type="checkbox">
+    <span>Remember password</span>
+  </div>
+
+  <!-- Captcha -->
+  <div class="captcha-box">
+    <span id="q">3 + 4 = ?</span>
+    <input id="a" placeholder="Answer">
+  </div>
+
+  <!-- Button -->
+  <button class="login-btn" onclick="login()">Sign in with Account</button>
+ 
+<div class="register-box">
+  <span>Don't have an account?</span>
+  <a href="register.html">Register Now</a>
+</div>
+
+<p class="more">More login methods</p>
+
+  <!-- Bottom -->
+  <p class="more">More login methods</p>
+  <div class="methods">
+    <span class="active">Username</span>
+    <span>Phone</span>
+    <span>Email</span>
+  </div>
+
+</div>
+
+<script>
+let cid="";
+fetch("/captcha")
+  .then(r=>r.json())
+  .then(d=>{
+    cid=d.id;
+    document.getElementById("q").innerText=d.q;
+  });
+
+function login(){
+  fetch("/login",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      mobile: m.value,
+      password: p.value,
+      cid: cid,
+      ans: a.value
+    })
+  })
+  .then(r=>r.json())
+  .then(d=>{
+    if(d.ok){
+      window.location.href="dashboard.html";
+    }else{
+      alert(d.msg);
+    }
+  });
+}
+</script>
+
+</body>
+</html>

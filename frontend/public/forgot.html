@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reset Password</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="auth">
+
+<h2>Reset Password</h2>
+
+<input id="m" placeholder="Mobile number">
+<input id="n" type="password" placeholder="New password">
+
+<p id="q"></p>
+<input id="a" placeholder="Captcha answer">
+
+<button type="button" onclick="resetPass()">Reset Password</button>
+
+<p>
+  <a href="index.html">Back to Login</a>
+</p>
+
+<script>
+let cid = "";
+
+fetch("/captcha")
+  .then(r => r.json())
+  .then(d => {
+    cid = d.id;
+    document.getElementById("q").innerText = d.q;
+  });
+
+function resetPass() {
+  fetch("/forgot", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      mobile: document.getElementById("m").value,
+      newpass: document.getElementById("n").value,
+      cid: cid,
+      ans: document.getElementById("a").value
+    })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d.ok) {
+      alert("Password updated");
+      window.location.href = "index.html";
+    } else {
+      alert(d.msg);
+    }
+  });
+}
+</script>
+
+</body>
+</html>

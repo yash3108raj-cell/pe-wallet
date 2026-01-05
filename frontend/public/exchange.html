@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exchange</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="exchange.css">
+</head>
+<body>
+
+<!-- ================= EXCHANGE FORM ================= -->
+<div id="exchangePage">
+
+  <!-- Platform Rate -->
+  <div class="rate-card">
+    <p class="small">Platform Rate</p>
+    <h2>1 USDT = ₹100</h2>
+  </div>
+
+  <!-- Deposit Button (USDT) -->
+<div class="deposit-top">
+  <button class="deposit-top-btn" onclick="openDepositAmount()">
+    Deposit USDT
+  </button>
+</div>
+
+  <!-- Amount -->
+  <div class="card">
+    <p class="label">Amount (INR)</p>
+    <input type="number" id="amount" placeholder="0.00">
+
+    <div class="quick">
+      <button onclick="setAmount(1000)">₹1,000</button>
+      <button onclick="setAmount(5000)">₹5,000</button>
+      <button onclick="setAmount(10000)">₹10,000</button>
+    </div>
+
+    <p class="limit">Min: ₹1,000 / Max: ₹50,000</p>
+  </div>
+
+  <!-- Bank Card -->
+  <div class="card">
+    <div class="row">
+      <p class="label">Receiving Bank Card</p>
+      <span class="change">Change ›</span>
+    </div>
+
+    <div class="bank-box">
+      <p>Please select a bank card</p>
+      <small>Add Bank Card</small>
+    </div>
+
+    <button class="blue-btn">Add Bank Card</button>
+  </div>
+
+  <!-- Exchange Process -->
+  <div class="info">
+    <strong>Exchange Process</strong>
+    <ol>
+      <li>Deposit USDT</li>
+      <li>Enter exchange amount</li>
+      <li>Select bank card</li>
+      <li>INR sent instantly</li>
+    </ol>
+  </div>
+
+  <!-- Exchange Button -->
+  <div class="deposit-btn-wrap">
+    <button class="deposit-btn" onclick="openDeposit()">
+      Exchange Now
+    </button>
+  </div>
+
+</div>
+<!-- ================= DEPOSIT AMOUNT PAGE ================= -->
+<div id="depositAmountPage" style="display:none;">
+
+  <div class="rate-card">
+    <p class="small">Deposit USDT</p>
+    <h2>Select Amount</h2>
+  </div>
+
+  <div class="card">
+    <p class="label">You Pay (USDT)</p>
+    <input type="number" id="usdtAmount" placeholder="0">
+
+    <div class="quick">
+      <button onclick="setUSDT(100)">100</button>
+      <button onclick="setUSDT(500)">500</button>
+      <button onclick="setUSDT(1000)">1000</button>
+      <button onclick="setUSDT(5000)">5000</button>
+    </div>
+
+    <p class="limit">Min: 10 USDT / Max: 50,000 USDT</p>
+  </div>
+
+  <div class="deposit-btn-wrap">
+    <button class="deposit-btn" onclick="openDepositQR()">
+      Deposit Now
+    </button>
+  </div>
+
+</div>
+
+<!-- ================= DEPOSIT QR PAGE ================= -->
+<div id="depositQRPage" style="display:none;">
+
+  <div class="rate-card">
+    <p class="small">Payment Preview</p>
+    <h2>USDT (TRC20)</h2>
+  </div>
+
+  <div class="card center">
+    <p>Amount</p>
+    <h1 id="showUSDT">0 USDT</h1>
+
+    <!-- EDITABLE ADDRESS -->
+    <div class="address-box">
+      <span id="depositAddress">YOUR_USDT_ADDRESS_HERE</span>
+      <button onclick="copyAddress()">Copy</button>
+    </div>
+
+    <!-- EDITABLE QR -->
+    <img
+      id="depositQR"
+      src="YOUR_QR_IMAGE_URL"
+      class="qr"
+    >
+  </div>
+
+</div>
+
+<!-- ================= DEPOSIT PAGE ================= -->
+<div id="depositPage" style="display:none;">
+
+  <div class="rate-card">
+    <p class="small">Payment Preview</p>
+    <h2>Deposit USDT (TRC20)</h2>
+  </div>
+
+  <div class="card center">
+    <p>Amount</p>
+    <h1 id="usdtAmount">0 USDT</h1>
+
+    <div class="address-box">
+      <span id="usdtAddress">TKHb8qrLFRJn6eJ3WHZym3sfc</span>
+      <button onclick="copyAddress()">Copy</button>
+    </div>
+
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=TKHb8qrLFRJn6eJ3WHZym3sfc"
+      class="qr"
+    >
+  </div>
+
+  <div class="confirm-wrap">
+    <button class="confirm-btn" onclick="confirmExchange()">
+      Confirm Exchange
+    </button>
+  </div>
+
+</div>
+
+<script src="exchange.js"></script>
+</body>
+</html>

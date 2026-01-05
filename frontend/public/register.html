@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BG Cash - Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+
+  <!-- Header -->
+  <div class="top-bar">
+    <a href="index.html" class="back">←</a>
+    <h2>BGCash</h2>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo.png" alt="BG Cash">
+  </div>
+
+  <!-- Welcome -->
+  <h1>Create Account</h1>
+  <p class="subtitle">Register to start earning safely</p>
+
+  <!-- Username / Mobile -->
+  <div class="input-box">
+    <label>Mobile / Username</label>
+    <input id="m" type="text" placeholder="Enter your mobile number">
+  </div>
+
+  <!-- Password -->
+  <div class="input-box">
+    <label>Password</label>
+    <input id="p" type="password" placeholder="Create password">
+  </div>
+
+  <!-- Captcha -->
+  <div class="captcha-box">
+    <span id="q">3 + 5 = ?</span>
+    <input id="a" placeholder="Answer">
+  </div>
+
+  <!-- Button -->
+  <button class="login-btn" onclick="register()">Create Account</button>
+
+  <!-- Bottom -->
+  <div class="register-box">
+    <span>Already have an account?</span>
+    <a href="index.html">Login Now</a>
+  </div>
+
+</div>
+
+<script>
+let cid = "";
+
+fetch("/captcha")
+  .then(r => r.json())
+  .then(d => {
+    cid = d.id;
+    document.getElementById("q").innerText = d.q;
+  });
+
+function register(){
+  fetch("/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      mobile: document.getElementById("m").value,
+      password: document.getElementById("p").value,
+      cid: cid,
+      ans: document.getElementById("a").value
+    })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if(d.ok){
+      alert("Registration successful");
+      window.location.href = "index.html";
+    }else{
+      alert(d.msg);
+    }
+  });
+}
+</script>
+
+</body>
+</html>

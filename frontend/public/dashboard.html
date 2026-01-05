@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<div class="header">
+  <h2>PE Wallet</h2>
+</div>
+
+<!-- ================= HOME SECTION ================= -->
+<div id="homeSection" class="home">
+
+  <div class="logo">
+    <div class="logo-icon">PE</div>
+    <span>PE Wallet</span>
+  </div>
+
+  <div class="notice-card">
+    <strong>[Notice]</strong>
+    <p>
+      Self-service platform ordering instructions:<br>
+      Fund exchange time: 9:00 AM – 9:00 PM
+    </p>
+    <a href="#">View full announcement ›</a>
+  </div>
+
+  <div class="bridge-card">
+    <h3>Exchange Bridge · Instant Arrival</h3>
+
+    <div class="bridge-icons">
+      <div class="icon-box blue">USDT</div>
+      <div class="arrow">⇄</div>
+      <div class="icon-box orange">INR</div>
+    </div>
+
+    <button class="main-btn" onclick="showExchange(this)">
+      Start Earning
+    </button>
+  </div>
+
+  <div class="features">
+    <div class="feature-card">
+      ⏱️
+      <p>Instant Exchange<br><small>Ultra Fast</small></p>
+    </div>
+    <div class="feature-card">
+      🛡️
+      <p>No Collateral<br><small>Zero Threshold</small></p>
+    </div>
+    <div class="feature-card">
+      ⇄
+      <p>Dual Currency<br><small>USDT ⇄ INR</small></p>
+    </div>
+  </div>
+
+  <div class="banner telegram">
+    <div>
+      <strong>Join Telegram Channel</strong>
+      <p>Get latest notifications</p>
+    </div>
+    <button>Join</button>
+  </div>
+
+  <div class="banner support">
+    <div>
+      <strong>Customer Service</strong>
+      <p>24/7 Online Support</p>
+    </div>
+    <button>Contact Us</button>
+  </div>
+
+</div>
+
+<!-- ================= EXCHANGE SECTION ================= -->
+<div id="exchangeSection" style="display:none;">
+  <iframe src="exchange.html" style="width:100%; height:100vh; border:none;"></iframe>
+</div>
+
+<!-- ================= AGENT SECTION ================= -->
+<div id="agentSection" class="agent" style="display:none;">
+
+  <div class="agent-header">
+    <h2>Agent Center</h2>
+    <div class="agent-icon">👥</div>
+  </div>
+
+  <div class="agent-summary">
+    <div class="summary-box green">
+      <h3>0</h3>
+      <p>Team Member</p>
+    </div>
+
+    <div class="summary-box orange">
+      <h3>₹0</h3>
+      <p>Team Earnings</p>
+    </div>
+
+    <div class="invite-box">
+      <div class="invite-title">🎁 Invite Code</div>
+      <div class="invite-code">
+        <span id="inviteCode">I6HdmN</span>
+        <button onclick="copyInvite()">Copy</button>
+      </div>
+    </div>
+
+    <div class="agent-actions">
+      <button class="btn blue">🔗 Share Link</button>
+      <button class="btn orange">👁 View Team</button>
+    </div>
+  </div>
+
+  <div class="rules">
+    <div class="rules-header">
+      📈 Commission Rules
+      <small>Transparent & Fair</small>
+    </div>
+
+    <div class="rule-item r1">
+      <span>1</span>
+      <div>
+        <strong>Invite & Register</strong>
+        <p>Share your invite code, friends become your referrals</p>
+      </div>
+    </div>
+
+    <div class="rule-item r2">
+      <span>2</span>
+      <div>
+        <strong>Earn Commission 0.5%</strong>
+        <p>You earn 0.5% on every downline transaction</p>
+      </div>
+    </div>
+
+    <div class="rule-item r3">
+      <span>3</span>
+      <div>
+        <strong>Instant Payment</strong>
+        <p>Withdraw commission anytime</p>
+      </div>
+    </div>
+
+    <div class="rule-item r4">
+      <span>4</span>
+      <div>
+        <strong>More Referrals, More Earnings</strong>
+        <p>The more referrals and transactions, the higher your earnings</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= ME SECTION ================= -->
+<!-- ================= ME SECTION ================= -->
+<div id="meSection" class="me" style="display:none;">
+
+  <!-- Header -->
+  <div class="me-header">
+    <div class="back">←</div>
+    <div>
+      <h2>Panel Center</h2>
+      <p>ID: <span id="userId">73265</span> &nbsp; <span id="userMobile">7091668804</span></p>
+    </div>
+  </div>
+
+  <!-- Balance Card -->
+  <div class="me-balance">
+    <div class="balance-row">
+      <div>
+        <small>Total exchange</small>
+        <h3>₹0</h3>
+      </div>
+      <div>
+        <small>Total commission</small>
+        <h3>₹0</h3>
+      </div>
+    </div>
+
+    <div class="balance-available">
+      Available Balance
+      <span>₹0</span>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div class="me-card">
+    <div class="me-item">
+      🔒
+      <div>
+        <strong>Reset Password</strong>
+        <p>Change login password</p>
+      </div>
+      <span>›</span>
+    </div>
+
+    <div class="me-item">
+      💳
+      <div>
+        <strong>Manage Bank Cards</strong>
+        <p>Add or remove bank cards</p>
+      </div>
+      <span>›</span>
+    </div>
+  </div>
+
+  <p class="me-title">Fund details</p>
+
+  <div class="me-card">
+    <div class="me-item">
+      🔁
+      <div>
+        <strong>My deposit</strong>
+        <p>Deposit details</p>
+      </div>
+      <span>›</span>
+    </div>
+
+    <div class="me-item">
+      📄
+      <div>
+        <strong>My Orders</strong>
+        <p>Order details</p>
+      </div>
+      <span>›</span>
+    </div>
+
+    <div class="me-item">
+      🌐
+      <div>
+        <strong>Language Settings</strong>
+      </div>
+      <span>›</span>
+    </div>
+  </div>
+
+  <!-- Logout -->
+  <button class="logout-btn" onclick="logoutUser()">Logout</button>
+
+</div>
+<!-- ================= BOTTOM NAV ================= -->
+<div class="bottom-nav">
+  <div class="nav-item active" onclick="showHome(this)">
+    <span class="icon">🏠</span>
+    <span class="text">Home</span>
+  </div>
+  <div class="nav-item" onclick="showExchange(this)">
+    <span class="icon">⇅</span>
+    <span class="text">Exchange</span>
+  </div>
+  <div class="nav-item" onclick="showAgent(this)">
+    <span class="icon">👥</span>
+    <span class="text">Agent</span>
+  </div>
+  <div class="nav-item" onclick="showMe(this)">
+    <span class="icon">👤</span>
+    <span class="text">Me</span>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
