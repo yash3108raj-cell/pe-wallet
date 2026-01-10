@@ -1,10 +1,10 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000 ;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -53,7 +53,7 @@ app.get("/captcha", (req, res) => {
   const id = Date.now().toString();
 
   captchaStore[id] = a + b;
-  res.json({ id, q: `${a} + ${b} = ?` });
+  res.json({ id, q: `${a} + ${b} = ? `});
 });
 
 function verifyCaptcha(id, ans) {
