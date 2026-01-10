@@ -39,20 +39,22 @@
   </div>
 
   <!-- Bank Card -->
-  <div class="card">
-    <div class="row">
-      <p class="label">Receiving Bank Card</p>
-      <span class="change">Change ›</span>
-    </div>
-
-    <div class="bank-box">
-      <p>Please select a bank card</p>
-      <small>Add Bank Card</small>
-    </div>
-
-    <button class="blue-btn">Add Bank Card</button>
+<div class="card">
+  <div class="row">
+    <p class="label">Receiving Bank Card</p>
+    <span class="change" onclick="openSelectBank()">Change ›</span>
   </div>
 
+  <div id="selectedBankBox"
+       onclick="openSelectBank()"
+       style="cursor:pointer; padding:12px; border:1px dashed #ccc; border-radius:10px;">
+    
+    <p id="selectedBankText" style="color:#999; margin:0;">
+      Please select a bank card
+    </p>
+
+  </div>
+</div>
   <!-- Exchange Process -->
   <div class="info">
     <strong>Exchange Process</strong>
@@ -66,7 +68,7 @@
 
   <!-- Exchange Button -->
   <div class="deposit-btn-wrap">
-    <button class="deposit-btn" onclick="openDeposit()">
+    <button class="deposit-btn" onclick="alert('Your Balance is Too Low')">
       Exchange Now
     </button>
   </div>
@@ -160,6 +162,9 @@
   </div>
 
 </div>
+
+
+
 
 <script src="exchange.js"></script>
 </body>

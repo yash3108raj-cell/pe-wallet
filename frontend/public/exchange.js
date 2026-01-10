@@ -59,3 +59,92 @@ function copyAddress() {
   navigator.clipboard.writeText(text);
   alert("Address copied");
 }
+
+function loadSelectedBank() {
+  const bank = JSON.parse(localStorage.getItem("selectedBank"));
+  const box = document.getElementById("selectedBank");
+
+  if (!bank) {
+    box.innerText = "Please select a bank card";
+    return;
+  }
+
+  box.innerHTML =` 
+    <strong>${bank.bankName}</strong><br>
+    ${bank.acc} • ${bank.ifsc}
+  `;
+}
+
+document.addEventListener("DOMContentLoaded", loadSelectedBank);
+
+
+  function openSelectBank() {
+    if (window.parent && window.parent.openSelectBank) {
+      window.parent.openSelectBank();
+    }
+  }
+
+  function showSelectedBank() {
+    if (window.parent && window.parent.showSelectedBank) {
+      window.parent.showSelectedBank();
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    showSelectedBank();
+  });
+
+ // 🔁 show selected bank on exchange page
+function showSelectedBank() {
+  const bankText = document.getElementById("selectedBankText");
+  if (!bankText) return;
+
+  const data = window.localStorage.getItem("selectedBank");
+
+  if (!data) {
+    bankText.innerText = "Please select a bank card";
+    bankText.style.color = "#999";
+    return;
+  }
+
+  const selected = JSON.parse(data);
+
+  bankText.innerHTML =` 
+    <strong>${selected.bankName}</strong><br>
+    ${selected.acc} • ${selected.ifsc}
+  ;`
+  bankText.style.color = "#000";
+}
+
+document.addEventListener("DOMContentLoaded", showSelectedBank);
+
+function showSelectedBank() {
+  const bankText = document.getElementById("selectedBankText");
+  if (!bankText) return;
+
+  const selected = JSON.parse(localStorage.getItem("selectedBank"));
+
+  if (!selected) {
+    bankText.innerText = "Please select a bank card";
+    bankText.style.color = "#999";
+    return;
+  }
+
+  bankText.innerHTML =` 
+    <strong>${selected.bankName}</strong><br>
+    ${selected.acc} • ${selected.ifsc}
+  ;`
+  bankText.style.color = "#000";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showSelectedBank();
+});
+
+function exchangeNow() {
+  // exchange section hide
+  document.getElementById("exchangeSection").style.display = "none";
+
+  // deposit / QR section show
+  document.getElementById("depositSection").style.display = "block";
+}

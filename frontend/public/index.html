@@ -18,7 +18,8 @@
 
   <!-- Logo -->
   <div class="logo">
-    <img src="logo.png" alt="pe wallet">
+   
+     <img src="./images/logo-transparent.png" class="top-logo" alt="PE WALLET">
   </div>
 
   <!-- Welcome -->
@@ -53,7 +54,7 @@
   </div>
 
   <!-- Button -->
-  <button class="login-btn" onclick="login()">Sign in with Account</button>
+  <button class="login-btn" onclick="login()" type="button" >Sign in with Account</button>
  
 <div class="register-box">
   <span>Don't have an account?</span>
@@ -71,6 +72,8 @@
   </div>
 
 </div>
+
+<script src="login.js"></script>
 
 <script>
 let cid="";
@@ -95,12 +98,27 @@ function login(){
   .then(r=>r.json())
   .then(d=>{
     if(d.ok){
+      localStorage.setItem("userPassword", p.value);
+      localStorage.setItem("isLoggedIn", "true"); 
       window.location.href="dashboard.html";
     }else{
       alert(d.msg);
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const invite = params.get("invite");
+
+  if (invite) {
+    const input = document.getElementById("inviteInput");
+    if (input) input.value = invite;
+  }
+});
+
+
+
 </script>
 
 </body>

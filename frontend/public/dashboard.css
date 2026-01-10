@@ -1,74 +1,40 @@
-body{margin:0;font-family:Arial;background:#f4f7fb}
-.auth{text-align:center;padding:40px}
-
-input{width:90%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ccc}
-button{border:none}
-
-.page{display:none;padding-bottom:70px}
-.page.active{display:block}
-
-.notice{background:#fff;margin:12px;padding:12px;border-radius:12px}
-.hero{text-align:center;padding:20px}
-.rate{background:#2f80ed;color:#fff;margin:16px;padding:16px;border-radius:16px;text-align:center}
-
-.bridge,.card{background:#fff;margin:16px;padding:16px;border-radius:16px}
-.features{display:flex;gap:10px;margin:0 16px}
-.features div{flex:1;background:#fff;padding:14px;border-radius:14px;text-align:center}
-
-.card-row{background:#fff;margin:16px;padding:14px;border-radius:14px;display:flex;justify-content:space-between}
-
-.btn{background:linear-gradient(90deg,#2f80ed,#2dcec4);color:#fff;padding:12px 30px;border-radius:30px}
-.btn.full{width:90%;margin:16px}
-
-.mini{background:#2f80ed;color:#fff;padding:6px 14px;border-radius:20px}
-
-.header{background:linear-gradient(135deg,#2f80ed,#56ccf2);color:#fff;padding:16px}
-
-.stats{display:flex;gap:12px;margin:16px}
-.stats div{flex:1;background:#fff;padding:16px;border-radius:16px;text-align:center}
-
-.logout{text-align:center;color:red;padding:20px}
-
-.nav{position:fixed;bottom:0;width:100%;display:flex;background:#fff;box-shadow:0 -3px 10px rgba(0,0,0,.1)}
-.nav button{flex:1;padding:12px;background:none}
-.nav .active{color:#2f80ed;font-weight:bold}
-/* ===== Bottom Navigation ===== */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 65px;
-  background: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid #eee;
-  z-index: 1000;
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
 }
 
-.nav-item {
-  flex: 1;
-  text-align: center;
-  color: #aaa;
-  font-size: 12px;
+body {
+  margin: 0;
+  background: #f4f7fb;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+/* ===== INPUTS & BUTTONS ===== */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  border: none;
   cursor: pointer;
 }
 
-.nav-item .icon {
-  display: block;
-  font-size: 22px;
-  margin-bottom: 4px;
+/* ===== SECTION VISIBILITY (JS CONTROLLED) ===== */
+#homeSection,
+#exchangeSection,
+#agentSection,
+#meSection,
+#bankSection,
+#changePasswordSection {
+  display: none;
+  width: 100%;
 }
 
-.nav-item.active {
-  color: #357aff;
-  font-weight: 600;
-}
-
-.nav-item.active .icon {
-  color: #357aff;
-}
 /* ===== HOME PAGE ===== */
 .home {
   padding: 15px;
@@ -76,38 +42,27 @@ button{border:none}
   background: #f4f8fb;
 }
 
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg,#4facfe,#357aff);
-  color: #fff;
-  display: flex;
+/* ===== HOME HEADER (LOGO ONLY ON HOME) ===== */
+#homeHeader {
+  height: 70px;
+  display: none;              /* JS will show only on Home */
   align-items: center;
   justify-content: center;
-  font-weight: bold;
 }
 
-.logo span {
-  font-size: 20px;
-  font-weight: 600;
+.top-logo {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
 }
 
-/* Notice */
+/* ===== NOTICE ===== */
 .notice-card {
   background: #fff;
   border-radius: 16px;
   padding: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
   margin-bottom: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
 }
 
 .notice-card a {
@@ -115,7 +70,7 @@ button{border:none}
   font-size: 14px;
 }
 
-/* Bridge */
+/* ===== EXCHANGE BRIDGE ===== */
 .bridge-card {
   background: linear-gradient(135deg,#eaf4ff,#ffffff);
   border-radius: 18px;
@@ -159,7 +114,6 @@ button{border:none}
 .main-btn {
   width: 100%;
   padding: 16px;
-  border: none;
   border-radius: 30px;
   background: linear-gradient(135deg,#4facfe,#357aff);
   color: #fff;
@@ -167,7 +121,7 @@ button{border:none}
   font-weight: bold;
 }
 
-/* Features */
+/* ===== FEATURES ===== */
 .features {
   display: flex;
   gap: 10px;
@@ -180,7 +134,6 @@ button{border:none}
   border-radius: 16px;
   padding: 12px;
   text-align: center;
-  font-size: 18px;
 }
 
 .feature-card p {
@@ -188,7 +141,7 @@ button{border:none}
   margin-top: 6px;
 }
 
-/* Banners */
+/* ===== BANNERS ===== */
 .banner {
   display: flex;
   justify-content: space-between;
@@ -200,10 +153,9 @@ button{border:none}
 }
 
 .banner button {
-  border: none;
   border-radius: 20px;
   padding: 8px 16px;
-  background: rgba(255,255,255,0.9);
+  background: #fff;
   color: #357aff;
   font-weight: bold;
 }
@@ -215,200 +167,28 @@ button{border:none}
 .support {
   background: linear-gradient(135deg,#5ad1c7,#4facfe);
 }
+
 /* ===== AGENT PAGE ===== */
-.agent {
-  background: #f4f8fb;
-  padding-bottom: 90px;
-}
 
-/* Header */
-.agent-header {
-  background: linear-gradient(135deg,#4facfe,#357aff);
-  color: #fff;
-  padding: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.agent-header h2 {
-  margin: 0;
-}
 
-.agent-icon {
-  background: rgba(255,255,255,0.2);
-  padding: 10px;
-  border-radius: 12px;
-}
-
-/* Summary */
-.agent-summary {
-  background: #fff;
-  margin: -30px 15px 15px;
-  padding: 15px;
-  border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-}
-
-.summary-box {
-  width: 48%;
-  padding: 15px;
-  border-radius: 16px;
-  text-align: center;
-}
-
-.summary-box h3 {
-  margin: 0;
-  font-size: 22px;
-}
-
-.summary-box.green {
-  background: #e9fff6;
-  color: #00a86b;
-}
-
-.summary-box.orange {
-  background: #fff3e0;
-  color: #ff9800;
-}
-
-.agent-summary > .summary-box {
-  display: inline-block;
-}
-
-/* Invite */
-.invite-box {
-  margin-top: 15px;
-}
-
-.invite-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.invite-code {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 2px solid #dff5ea;
-  border-radius: 14px;
-  padding: 12px;
-  color: #00a86b;
-  font-weight: bold;
-}
-
-.invite-code button {
-  border: none;
-  background: #00c389;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 16px;
-}
-
-/* Actions */
-.agent-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.btn {
-  flex: 1;
-  padding: 14px;
-  border: none;
-  border-radius: 20px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.btn.blue {
-  background: linear-gradient(135deg,#4facfe,#357aff);
-}
-
-.btn.orange {
-  background: linear-gradient(135deg,#ffb347,#ff9800);
-}
-
-/* Rules */
-.rules {
-  background: #fff;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 20px;
-}
-
-.rules-header {
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.rules-header small {
-  display: block;
-  color: #999;
-}
-
-.rule-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 16px;
-  margin-bottom: 10px;
-}
-
-.rule-item span {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.r1 { background: #ecf7ff; }
-.r1 span { background: #d0e9ff; }
-
-.r2 { background: #fff7e6; }
-.r2 span { background: #ffe0a3; }
-
-.r3 { background: #f0f9ff; }
-.r3 span { background: #cfeeff; }
-
-.r4 { background: #f7f0ff; }
-.r4 span { background: #e4d7ff; }
 /* ===== ME PAGE ===== */
 .me {
   background: #f4f8fb;
   padding-bottom: 90px;
 }
 
-/* Header */
 .me-header {
   background: linear-gradient(135deg,#4facfe,#357aff);
   color: #fff;
-  padding: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  padding: 16px;
 }
 
-.me-header h2 {
-  margin: 0;
-}
-
-.me-header p {
-  margin: 5px 0 0;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* Balance Card */
 .me-balance {
-  background: #5bbdf2;
-  margin: -30px 15px 15px;
-  padding: 15px;
-  border-radius: 20px;
+  background: rgba(46,156,147,0.25);
+  margin: -20px 15px 15px;
+  padding: 16px;
+  border-radius: 18px;
   color: #fff;
 }
 
@@ -425,15 +205,16 @@ button{border:none}
 
 .balance-available span {
   float: right;
+  color: #ffd54f;
   font-weight: bold;
 }
 
-/* Cards */
+/* ===== CARDS ===== */
 .me-card {
   background: #fff;
   margin: 15px;
   border-radius: 18px;
-  padding: 5px;
+  padding: 6px;
 }
 
 .me-item {
@@ -448,37 +229,1489 @@ button{border:none}
   border-bottom: none;
 }
 
-.me-item strong {
-  font-size: 15px;
-}
-
-.me-item p {
-  font-size: 13px;
-  color: #999;
-}
-
 .me-item span {
   margin-left: auto;
   color: #ccc;
-  font-size: 20px;
 }
 
-.me-title {
-  margin: 10px 20px;
-  color: #999;
-  font-size: 14px;
-}
-
-/* Logout */
+/* ===== LOGOUT BUTTON ===== */
 .logout-btn {
   width: calc(100% - 30px);
   margin: 20px 15px;
   padding: 14px;
-  border: none;
   border-radius: 30px;
   background: #fff;
   color: red;
+  font-weight: bold;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #eee;
+  z-index: 1000;
+}
+
+/* ===== FIX CONFIRM EXCHANGE BUTTON AT BOTTOM ===== */
+.exchange-bottom-btn {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 70px; /* bottom nav के ऊपर */
+  padding: 12px 16px;
+  background: #fff;
+  z-index: 999;
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #4facfe, #00c6ff);
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.nav-item .icon {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: #357aff;
+  font-weight: 600;
+}
+
+/* ===== DESKTOP SAFE VIEW ===== */
+@media (min-width: 768px) {
+  .home,
+  .agent,
+  .me {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+/* ===== Language Modal ===== */
+.lang-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.lang-modal {
+  width: 85%;
+  max-width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+.lang-modal h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.lang-option {
+  background: #f6f7f9;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lang-option:hover {
+  background: #e9f1ff;
+}
+
+.lang-cancel {
+  margin-top: 10px;
+  padding: 12px;
+  color: #666;
+  cursor: pointer;
+}
+
+/* ===== AGENT PAGE FIX ===== */
+
+/* ================= AGENT SECTION ================= */
+
+.agent {
+  background: #f4f7fb;
+  padding-bottom: 90px;
+}
+
+/* Header */
+.agent-header {
+  background: linear-gradient(135deg, #4facfe, #357aff);
+  color: #fff;
+  padding: 28px 20px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  text-align: center;
+}
+
+.agent-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Summary Cards */
+.agent-summary {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  margin-top: -28px;
+}
+
+.summary-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 10px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+}
+
+.summary-card h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.summary-card p {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #888;
+}
+
+.summary-card.green {
+  border-top: 4px solid #00c389;
+  background-color: rgba(56, 234, 56, 0.767);
+}
+
+.summary-card.orange {
+  border-top: 4px solid #ff9800;
+  background-color: rgba(240, 189, 70, 0.924);
+}
+
+/* Invite Card */
+.invite-card {
+  background: #fff;
+  margin: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+}
+
+.invite-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.invite-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px dashed #dfeaff;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  color: #357aff;
+}
+
+.invite-box button {
+  border: none;
+  background: linear-gradient(135deg, #4facfe, #357aff);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+/* Invite Actions */
+.invite-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.invite-actions .btn {
+  flex: 1;
+  border: none;
+  padding: 14px 0;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.invite-actions .btn.blue {
+  background: linear-gradient(135deg, #4facfe, #357aff);
+}
+
+.invite-actions .btn.orange {
+  background: linear-gradient(135deg, #ffb347, #ff9800);
+}
+
+/* Commission Rules */
+.commission-card {
+  background: #fff;
+  margin: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+}
+
+.commission-card h3 {
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+.rule-item {
+  padding: 12px;
+  border-radius: 14px;
+  background: #f7faff;
+  margin-bottom: 10px;
+}
+
+.rule-item strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.rule-item p {
+  font-size: 13px;
+  color: #777;
+}
+
+/* ===== Orders Page ===== */
+.orders-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* Header */
+.orders-header {
+  background: linear-gradient(135deg, #2fa4e7, #4fc3f7);
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.orders-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.back-btn {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Summary cards */
+.orders-summary {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  margin-top: -20px;
+}
+
+.summary-box {
+  flex: 1;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  color: #fff;
+}
+
+.summary-box .amount {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.summary-box .label {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 6px 0 0;
+}
+
+/* Empty area */
+.orders-empty {
+  background: #fff;
+  margin: 16px;
+  border-radius: 12px;
+  height: 300px;
+}
+
+/* ===== Language Modal ===== */
+.lang-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lang-modal {
+  width: 85%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+}
+
+.lang-modal h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.lang-option {
+  background: #f5f7fb;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lang-option:hover {
+  background: #eaf1ff;
+}
+
+.lang-cancel {
+  margin-top: 6px;
+  padding: 14px;
+  font-size: 15px;
+  color: #666;
+  cursor: pointer;
+}
+
+/* ===== PAGE VISIBILITY CONTROL ===== */
+.page {
+  display: none;
+  min-height: calc(100vh - 65px); /* bottom nav safe */
+  padding-bottom: 100px;
+}
+
+.page.active {
+  display: block;
+}
+
+.deposit-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 25px;
+  background: linear-gradient(90deg,#4facfe,#00f2fe);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+}
+.deposit-btn-wrap {
+  margin-bottom: 100px;
+}
+
+.deposit-btn-wrap {
+  padding: 16px;
+  margin-bottom: 120px; /* bottom nav space */
+}
+
+.deposit-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(90deg, #4facfe, #00c6fb);
+}
+
+/* ===== EXCHANGE PROCESS BOX ===== */
+.exchange-process {
+  background: #eef6ff;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px;
+  margin-bottom: 20px; /* confirm button space */
+}
+
+.process-title {
+  font-weight: 600;
+  color: #2b6ef3;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exchange-process ol {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.exchange-process li {
+  font-size: 14px;
+  color: #2b6ef3;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+#exchangeSection{
+  padding-bottom: 1px;
+}
+
+:root {
+  --blue1: #4facfe;
+  --blue2: #00c6ff;
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-deep: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.card,
+.exchange-process,
+.rate-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:active,
+.exchange-process:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-deep);
+}
+
+.rate-card {
+  background: linear-gradient(135deg, var(--blue1), var(--blue2));
+  color: white;
+  box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4);
+}
+
+.rate-card h2 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.quick button {
+  background: linear-gradient(135deg, #e0f2ff, #f5fbff);
+  border-radius: 999px;
+  border: none;
+  padding: 10px 18px;
+  font-weight: 600;
+  color: #007bff;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.7),
+              0 6px 14px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+.quick button:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 4px 6px rgba(0,0,0,0.12);
+}
+
+#selectedBankBox {
+  background: linear-gradient(145deg, #ffffff, #f1f7ff);
+  box-shadow: inset 0 2px 6px rgba(255,255,255,0.8),
+              0 10px 25px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.25s ease;
+}
+
+#selectedBankBox:active {
+  transform: scale(0.97);
+}
+
+.confirm-exchange-btn {
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: none;
+  height: 54px;
+  box-shadow:
+    0 12px 25px rgba(0, 150, 255, 0.45),
+    inset 0 -3px 6px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+}
+
+.confirm-exchange-btn:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 6px 15px rgba(0, 150, 255, 0.3),
+    inset 0 3px 6px rgba(0,0,0,0.25);
+}
+
+.bottom-nav {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.12);
+}
+
+.nav-item.active {
+  color: #007bff;
+  transform: translateY(-4px);
+}
+
+/* ================= HOME DARK BASE ================= */
+#homeSection{
+  background: radial-gradient(circle at top,#1b1b1b,#0a0a0a);
+  color:#fff;
+  padding:18px;
+}
+
+/* ================= HEADER ================= */
+.top-header{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.top-logo{
+  background:#0f0f0f;
+  padding:0px 0px;
+  border-radius:22px;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.9),
+    inset 0 1px 0 rgba(255,255,255,.1);
+  transition:.4s ease;
+}
+.top-logo:hover{
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* ================= NOTICE CARD ================= */
+.notice-card{
+  background:linear-gradient(145deg,#121212,#0a0a0a);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.8),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+.notice-card strong{color:#00e5ff;}
+.notice-card p{opacity:.85}
+
+/* ================= BRIDGE CARD ================= */
+.bridge-card{
+  margin-top:24px;
+  background:linear-gradient(145deg,#101010,#050505);
+  border-radius:28px;
+  padding:26px;
+  text-align:center;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.95),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  transition:.4s;
+}
+.bridge-card:hover{
+  transform:translateY(-6px);
+}
+
+/* ================= ICON BOXES ================= */
+.icon-box{
+  width:86px;
+  height:86px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#fff;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.9),
+    inset 0 1px 0 rgba(255,255,255,.1);
+  transition:.35s;
+}
+.icon-box.blue{
+  background:linear-gradient(145deg,#00bcd4,#008ba3);
+}
+.icon-box.orange{
+  background:linear-gradient(145deg,#ff9800,#ff6f00);
+}
+.icon-box:hover{
+  transform:translateY(-6px) scale(1.05);
+}
+
+/* ================= START EARNING BUTTON ================= */
+.main-btn{
+  margin-top:26px;
+  background:linear-gradient(135deg,#00bcd4,#008ba3);
+  border:none;
+  border-radius:30px;
+  padding:16px 34px;
+  font-size:16px;
+  color:#fff;
+  box-shadow:
+    0 25px 60px rgba(0,188,212,.6),
+    inset 0 1px 0 rgba(255,255,255,.3);
+  transition:.35s;
+}
+.main-btn:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:
+    0 35px 90px rgba(0,188,212,.9);
+}
+
+/* ================= FEATURES ================= */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:26px;
+}
+.feature-card{
+  background:#0f0f0f;
+  border-radius:22px;
+  padding:18px;
+  text-align:center;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.8),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  transition:.35s;
+}
+.feature-card:hover{
+  transform:translateY(-6px);
+}
+
+/* ================= BANNERS ================= */
+.banner{
+  margin-top:20px;
+  padding:20px;
+  border-radius:26px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.85),
+    inset 0 1px 0 rgba(255,255,255,.1);
+  transition:.4s;
+}
+.banner.telegram{
+  background:linear-gradient(135deg,#00bcd4,#0097a7);
+}
+.banner.support{
+  background:linear-gradient(135deg,#4caf50,#2e7d32);
+}
+.banner:hover{
+  transform:translateY(-6px) scale(1.02);
+}
+.banner button{
+  border:none;
+  background:#fff;
+  color:#000;
+  padding:10px 20px;
+  border-radius:20px;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+/* ================= BOTTOM NAV DARK ================= */
+.bottom-nav{
+  background:#050505;
+  box-shadow:
+    0 -10px 40px rgba(0,0,0,.9);
+}
+.nav-item{
+  color:#777;
+  transition:.3s;
+}
+.nav-item.active{
+  color:#00e5ff;
+}
+.nav-item:hover{
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+/* ================= EXCHANGE PAGE BASE ================= */
+#exchangeSection,
+#exchangePage{
+  background:#e0f7fa;
+  padding:16px;
+}
+
+/* ================= TOP RATE CARD ================= */
+.rate-card{
+  background:linear-gradient(145deg,#00bcd4,#26c6da);
+  border-radius:22px;
+  padding:22px;
+  color:#fff;
+  box-shadow:
+    0 20px 45px rgba(0,188,212,.35),
+    inset 0 1px 0 rgba(255,255,255,.35);
+  transition:.35s;
+}
+.rate-card:hover{
+  transform:translateY(-4px);
+}
+
+/* Deposit button inside rate card */
+.rate-card button{
+  background:rgba(255,255,255,.25);
+  color:#fff;
+  border:none;
+  border-radius:20px;
+  padding:8px 18px;
+  backdrop-filter:blur(6px);
+}
+
+/* ================= AMOUNT CARD ================= */
+.card{
+  background:#fff;
+  border-radius:22px;
+  padding:20px;
+  margin-top:18px;
+  box-shadow:
+    0 18px 40px rgba(165,216,224,.6);
+}
+
+/* input */
+.card input{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #ddd;
+  font-size:22px;
+  padding:10px 0;
+  outline:none;
+}
+
+/* ================= QUICK BUTTONS ================= */
+.quick{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.quick button{
+  flex:1;
+  border:none;
+  border-radius:18px;
+  background:#e0f7fa;
+  padding:10px 0;
+  color:#00bcd4;
+  font-weight:600;
+  box-shadow:
+    0 8px 20px rgba(165,216,224,.6);
+  transition:.25s;
+}
+.quick button:hover{
+  background:#00bcd4;
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+/* ================= RECEIVING BANK CARD ================= */
+#selectedBankBox{
+  background:linear-gradient(145deg,#ffffff,#f4fbfd);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:
+    inset 0 0 0 1px #d9eef2,
+    0 12px 30px rgba(165,216,224,.5);
+}
+
+/* ================= ADD BANK CARD BUTTON ================= */
+.add-bank-btn,
+.deposit-btn,
+.confirm-btn,
+.deposit-btn-wrap button{
+  width:100%;
+  background:linear-gradient(135deg,#00bcd4,#0097a7);
+  border:none;
+  border-radius:30px;
+  padding:16px;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  margin-top:16px;
+  box-shadow:
+    0 20px 45px rgba(0,188,212,.45);
+  transition:.3s;
+}
+.add-bank-btn:hover,
+.deposit-btn:hover,
+.confirm-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 30px 65px rgba(0,188,212,.65);
+}
+
+/* ================= EXCHANGE PROCESS BOX ================= */
+.info{
+  background:#f1fbff;
+  border-radius:20px;
+  padding:18px;
+  margin-top:18px;
+  box-shadow:
+    0 12px 30px rgba(165,216,224,.5);
+}
+.info strong{
+  color:#00bcd4;
+}
+.info li{
+  margin:8px 0;
+  color:#007c91;
+}
+
+/* ================= CONFIRM EXCHANGE BUTTON ================= */
+.deposit-btn-wrap{
+  margin:22px 0 90px;
+}
+
+/* ================= REMOVE EXTRA GAPS ================= */
+.page{
+  padding-bottom:110px !important;
+  margin-bottom:0 !important;
+}
+
+/* ================= BOTTOM NAV DARK ================= */
+.bottom-nav{
+  background:#000;
+  box-shadow:
+    0 -12px 40px rgba(0,0,0,.9);
+}
+.nav-item{
+  color:#777;
+}
+.nav-item.active{
+  color:#00bcd4;
+}
+
+/* ================= AGENT SECTION ================= */
+#agentSection {
+  padding: 18px;
+  background: #e0f7fa;
+}
+
+/* Header */
+.agent-header h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* ===== SUMMARY CARDS ===== */
+.agent-summary {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow:
+    8px 8px 18px #a5d8e0,
+    -8px -8px 18px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    12px 12px 25px #a5d8e0,
+    -12px -12px 25px #ffffff;
+}
+
+.summary-card h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.summary-card.green h3 {
+  color: #4caf50;
+}
+
+.summary-card.orange h3 {
+  color: #00bcd4;
+}
+
+/* ===== INVITE CARD ===== */
+.invite-card {
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f1fbfd
+  );
+  border-radius: 22px;
+  padding: 20px;
+  margin-bottom: 22px;
+  box-shadow:
+    10px 10px 25px #a5d8e0,
+    -10px -10px 25px #ffffff;
+}
+
+.invite-card p {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.invite-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e0f7fa;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: inset 4px 4px 8px #a5d8e0,
+              inset -4px -4px 8px #ffffff;
+}
+
+.invite-box span {
+  font-weight: bold;
+  color: #111;
+}
+
+.invite-box button {
+  background: #00bcd4;
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.invite-card button {
+  margin-top: 14px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #00bcd4,
+    #4caf50
+  );
+  box-shadow:
+    0 10px 20px rgba(0, 188, 212, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.invite-card button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 30px rgba(0, 188, 212, 0.6);
+}
+
+/* ===== COMMISSION RULES ===== */
+.commission-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow:
+    10px 10px 25px #a5d8e0,
+    -10px -10px 25px #ffffff;
+}
+
+.commission-card h3 {
+  margin: 0;
+  color: #00bcd4;
+}
+
+.commission-card > p {
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* Rule items */
+.rule-item {
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    #f7feff,
+    #e6f7fa
+  );
+  box-shadow:
+    inset 4px 4px 8px #a5d8e0,
+    inset -4px -4px 8px #ffffff;
+}
+
+.rule-item strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.rule-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ================= ME SECTION ================= */
+#meSection {
+  background: #e0f7fa;
+  padding-bottom: 90px;
+}
+
+/* ===== HEADER ===== */
+.me-header {
+  background: linear-gradient(135deg, #00bcd4, #4caf50);
+  color: #fff;
+  padding: 22px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.me-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.me-header p {
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+/* ===== BALANCE CARD ===== */
+.me-balance {
+  background: #ffffff;
+  margin: -35px 16px 20px;
+  padding: 18px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow:
+    10px 10px 25px #a5d8e0,
+    -10px -10px 25px #ffffff;
+}
+
+.me-balance p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #111;
+}
+
+/* ===== CARD LIST ===== */
+.me-card {
+  background: #ffffff;
+  margin: 16px;
+  border-radius: 22px;
+  padding: 6px;
+  box-shadow:
+    10px 10px 25px #a5d8e0,
+    -10px -10px 25px #ffffff;
+}
+
+/* ===== ITEM ===== */
+.me-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.me-item:not(:last-child) {
+  border-bottom: 1px solid #eef6f8;
+}
+
+.me-item:hover {
+  background: linear-gradient(
+    145deg,
+    #f8feff,
+    #e8f7fa
+  );
+  transform: translateY(-3px);
+  box-shadow:
+    inset 3px 3px 6px #a5d8e0,
+    inset -3px -3px 6px #ffffff;
+}
+
+/* ICON */
+.me-item:first-child::before {
+  content: "";
+}
+
+.me-item strong {
+  font-size: 15px;
+  color: #111;
+}
+
+.me-item p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* ARROW */
+.me-item span {
+  margin-left: auto;
+  font-size: 20px;
+  color: #00bcd4;
+}
+
+/* ===== LOGOUT BUTTON ===== */
+.logout-btn {
+  width: calc(100% - 32px);
+  margin: 24px 16px;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(
+    135deg,
+    #ff5252,
+    #ff1744
+  );
+  color: #fff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow:
+    0 10px 22px rgba(255, 82, 82, 0.4);
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 32px rgba(255, 82, 82, 0.6);
+}
+
+/* ===== BACK ARROW ===== */
+.me-header .back {
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+body{
+  padding: 0px;
+}
+
+#changePasswordSection {
+  padding: 20px;
+  padding-bottom: 120px; /* bottom nav safe */
+  box-sizing: border-box;
+}
+
+#changePasswordSection h2,
+#changePasswordSection h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #000;
+}
+
+#changePasswordSection .card,
+#changePasswordSection .password-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow:
+    0 18px 40px rgba(165, 216, 224, 0.45),
+    inset 0 2px 4px rgba(255,255,255,0.9);
+}
+#changePasswordSection input {
+  width: 100%;
+  height: 50px;
+  border-radius: 14px;
+  border: none;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  font-size: 15px;
+  background: #ffffff;
+  box-shadow:
+    inset 4px 4px 8px #a5d8e0,
+    inset -4px -4px 8px #ffffff;
+  outline: none;
+  transition: all 0.25s ease;
+}
+#changePasswordSection input:focus {
+  box-shadow:
+    0 0 0 2px rgba(0, 188, 212, 0.25),
+    inset 3px 3px 6px #a5d8e0,
+    inset -3px -3px 6px #ffffff;
+}
+#changePasswordSection button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 38px rgba(0, 188, 212, 0.55);
+}
+
+#changePasswordSection button:active {
+  transform: scale(0.97);
+}
+#changePasswordSection * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#bankSection {
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 120px; /* bottom nav safe */
+  background: linear-gradient(180deg, #e0f7fa, #f6fdff);
+}
+
+
+
+#bankSection h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+
+#noBank {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px;
+  text-align: center;
+  box-shadow:
+    0 18px 40px rgba(165, 216, 224, 0.6),
+    inset 0 2px 4px rgba(255,255,255,0.9);
+}
+
+
+#noBank p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+
+#noBank button {
+  padding: 12px 26px;
+  border-radius: 28px;
+  border: none;
+  background: linear-gradient(135deg, #00bcd4, #4caf50);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow:
+    0 16px 32px rgba(0, 188, 212, 0.5),
+    inset 0 2px 4px rgba(255,255,255,0.35);
+  transition: all 0.25s ease;
+}
+
+
+#noBank button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 45px rgba(0, 188, 212, 0.65);
+}
+
+#noBank button:active {
+  transform: scale(0.95);
+}
+
+
+#bankList {
+  margin-top: 18px;
+}
+
+
+.bank-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow:
+    0 14px 30px rgba(165, 216, 224, 0.5),
+    inset 0 2px 4px rgba(255,255,255,0.85);
+}
+
+
+#addBankForm {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow:
+    0 22px 45px rgba(165, 216, 224, 0.6),
+    inset 0 2px 6px rgba(255,255,255,0.9);
+}
+
+
+#addBankForm input {
+  width: 100%;
+  height: 52px;
+  border-radius: 16px;
+  border: none;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  font-size: 14px;
+  background: #ffffff;
+  box-shadow:
+    inset 6px 6px 12px #a5d8e0,
+    inset -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+
+
+#addBankForm input:focus {
+  box-shadow:
+    0 0 0 3px rgba(0, 188, 212, 0.35),
+    inset 4px 4px 8px #a5d8e0,
+    inset -4px -4px 8px #ffffff;
+}
+
+
+#addBankForm button {
+  width: 100%;
+  height: 54px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #00bcd4, #4caf50);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  box-shadow:
+    0 20px 40px rgba(0, 188, 212, 0.55),
+    inset 0 2px 4px rgba(255,255,255,0.35);
+  transition: all 0.25s ease;
+}
+
+
+#addBankForm button:hover {
+  transform: translateY(-3px);
+}
+
+#addBankForm button:active {
+  transform: scale(0.96);
+}
+
+#ordersSection{min-height:100vh;padding:24px 20px 120px;background:linear-gradient(180deg,#e0f7fa,#f6feff);display:flex;flex-direction:column;justify-content:center}#ordersSection h3{font-size:22px;font-weight:800;margin-bottom:16px;color:#000}#ordersSection p{background:#fff;border-radius:22px;padding:30px 20px;text-align:center;font-size:15px;color:#666;box-shadow:0 25px 55px rgba(165,216,224,.55),inset 0 2px 6px rgba(255,255,255,.9);animation:floatOrder 4s ease-in-out infinite}@keyframes floatOrder{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+
+/* ===== Language Modal ===== */
+.lang-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  backdrop-filter:blur(6px);
+}
+
+.lang-box{
+  width:90%;
+  max-width:360px;
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  animation:langPop .25s ease;
+}
+
+.lang-box h3{
+  margin-bottom:16px;
+  font-size:18px;
+  font-weight:700;
+  text-align:center;
+}
+
+.lang-option{
+  background:#f6f7f9;
+  padding:14px 16px;
+  border-radius:12px;
+  margin-bottom:12px;
+  font-size:15px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.lang-option:hover{
+  background:#e9f7ff;
+  transform:translateY(-2px);
+}
+
+.lang-cancel{
+  margin-top:6px;
+  text-align:center;
+  padding:12px;
+  color:#666;
+  font-weight:600;
+  cursor:pointer;
+}
+
+@keyframes langPop{
+  from{transform:scale(.92);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* ===== GLOBAL FONT SETUP ===== */
+*{
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue',
+               Arial, sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4{
+  font-weight:700;
+  letter-spacing:-0.3px;
+}
+
+/* Normal text */
+p, span, div{
+  font-weight:400;
+}
+
+/* Buttons */
+button{
+  font-weight:600;
+  letter-spacing:.2px;
+}
+
+/* Inputs */
+input, textarea{
+  font-weight:500;
+}
+
+.balance, .amount, .price{
+  font-weight:700;
 }

@@ -1,270 +1,426 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="exchange.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<div class="header">
-  <h2>PE Wallet</h2>
-</div>
-
 <!-- ================= HOME SECTION ================= -->
-<div id="homeSection" class="home">
+<div id="homeSection" class="page" style="display:block;">
 
-  <div class="logo">
-    <div class="logo-icon">PE</div>
-    <span>PE Wallet</span>
+  <div class="top-header">
+    <img src="./images/logo-transparent.png" class="top-logo">
   </div>
 
   <div class="notice-card">
     <strong>[Notice]</strong>
-    <p>
-      Self-service platform ordering instructions:<br>
-      Fund exchange time: 9:00 AM – 9:00 PM
-    </p>
-    <a href="#">View full announcement ›</a>
+    <p>Fund exchange time: 9:00 AM – 9:00 PM</p>
   </div>
 
   <div class="bridge-card">
     <h3>Exchange Bridge · Instant Arrival</h3>
-
     <div class="bridge-icons">
       <div class="icon-box blue">USDT</div>
       <div class="arrow">⇄</div>
       <div class="icon-box orange">INR</div>
     </div>
-
-    <button class="main-btn" onclick="showExchange(this)">
-      Start Earning
-    </button>
+    <button class="main-btn" onclick="showExchange(this)">Start Earning</button>
   </div>
 
   <div class="features">
-    <div class="feature-card">
-      ⏱️
-      <p>Instant Exchange<br><small>Ultra Fast</small></p>
-    </div>
-    <div class="feature-card">
-      🛡️
-      <p>No Collateral<br><small>Zero Threshold</small></p>
-    </div>
-    <div class="feature-card">
-      ⇄
-      <p>Dual Currency<br><small>USDT ⇄ INR</small></p>
-    </div>
+    <div class="feature-card">⏱️<p>Instant Exchange</p></div>
+    <div class="feature-card">🛡<p>No Collateral</p></div>
+    <div class="feature-card">⇄<p>USDT ⇄ INR</p></div>
   </div>
 
   <div class="banner telegram">
-    <div>
-      <strong>Join Telegram Channel</strong>
-      <p>Get latest notifications</p>
-    </div>
-    <button>Join</button>
+    <div><strong>Join Telegram Channel</strong></div>
+    <button onclick="joinTelegram()">Join</button>
   </div>
 
   <div class="banner support">
-    <div>
-      <strong>Customer Service</strong>
-      <p>24/7 Online Support</p>
-    </div>
-    <button>Contact Us</button>
+    <div><strong>Customer Service</strong></div>
+    <button onclick="window.location.href='https://t.me/YourSupportUsername'">
+      Contact Us
+    </button>
   </div>
 
 </div>
 
 <!-- ================= EXCHANGE SECTION ================= -->
-<div id="exchangeSection" style="display:none;">
-  <iframe src="exchange.html" style="width:100%; height:100vh; border:none;"></iframe>
+<!-- ================= EXCHANGE SECTION ================= -->
+<div id="exchangeSection" class="page" style="display:none;">
+
+  <!-- Header -->
+  <div class="exchange-header">
+    <h2>Exchange</h2>
+  </div>
+
+  <!-- Rate Card -->
+  <div class="rate-card">
+    <div>
+      <p class="small">Platform Rate</p>
+      <h3>1 USDT = ₹98.5</h3>
+    </div>
+    <button class="deposit-btn-small" onclick="openDepositExchange()" >Deposit</button>
+  </div>
+
+  <div class="balance-row">
+    <span>Available Balance</span>
+    <strong>₹0</strong>
+  </div>
+
+  <!-- Amount Card -->
+  <div class="card">
+    <p class="label">Amount</p>
+    <input type="number" id="amount" placeholder="0.00">
+
+    <div class="quick">
+      <button onclick="setAmount(1000)">₹1,000</button>
+      <button onclick="setAmount(5000)">₹5,000</button>
+      <button onclick="setAmount(10000)">₹10,000</button>
+    </div>
+
+    <p class="limit">Min: ₹1,000 / Max: ₹50,000</p>
+  </div>
+
+  <!-- Bank Card -->
+  <div class="card">
+    <div class="row">
+      <p class="label">Receiving Bank Card</p>
+      <span class="change" onclick="openSelectBank()">Change ›</span>
+    </div>
+
+
+    <div id="selectedBankBox" onclick="openSelectBank()" class="bank-select-box">
+      <p id="selectedBankText" class="muted">
+        Please select a bank card
+      </p>
+    </div>
+
+
+
+    <button class="main-btn" onclick="openBankCards()">
+      Add Bank Card
+    </button>
+  </div>
+
+  <!-- ===== EXCHANGE PROCESS ===== -->
+<div class="exchange-process">
+  <div class="process-title">
+    ℹ️ Exchange Process
+  </div>
+
+  <ol>
+    <li>
+      Deposit USDT. USDT will be converted to INR and credited to your YesPay account.
+    </li>
+    <li>
+      Enter your order amount (INR).
+    </li>
+    <li>
+      Select your receiving bank card.
+    </li>
+    <li>
+      After we confirm receipt, the INR will be transferred to your bank card immediately.
+    </li>
+  </ol>
 </div>
 
+    <div class="deposit-btn-wrap" style="margin-bottom:90px;">
+  <button class="deposit-btn" onclick="confirmExchange()">
+    Confirm Exchange
+  </button>
+</div>
+
+</div>
+
+<!-- ================= DEPOSIT EXCHANGE PAGE ================= -->
+<div id="depositExchangeSection" class="page" style="display:none;">
+
+  <!-- Rate -->
+  <div class="rate-card">
+    <p class="small">Platform Rate</p>
+    <h3>1 USDT = ₹98.5</h3>
+  </div>
+
+  <!-- YOU PAY -->
+  <div class="card">
+    <div class="row">
+      <p class="label">You Pay</p>
+      <strong>USDT</strong>
+    </div>
+
+    <input
+      type="number"
+      id="usdtInput"
+      placeholder="Enter USDT amount"
+      oninput="calculateINR()"
+    >
+
+    <div class="quick">
+      <button onclick="setUSDT(100)">100</button>
+      <button onclick="setUSDT(500)">500</button>
+      <button onclick="setUSDT(1000)">1000</button>
+      <button onclick="setUSDT(5000)">5000</button>
+    </div>
+
+    <p class="limit">Min: 10 USDT · Max: 50,000 USDT</p>
+  </div>
+
+  <!-- SWITCH ICON -->
+  <div style="text-align:center;margin:15px;">
+    ⬇️⬆️
+  </div>
+
+  <!-- YOU RECEIVE -->
+  <div class="card blue">
+    <div class="row">
+      <p class="label">You Receive</p>
+      <strong>INR</strong>
+    </div>
+
+    <h1 id="inrOutput">₹0</h1>
+    <p class="small">Rate: 1 USDT = ₹98.5</p>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="info">
+    <strong>Exchange Process</strong>
+    <ol>
+      <li>Deposit USDT</li>
+      <li>Enter your amount</li>
+      <li>Select bank card</li>
+      <li>INR sent instantly</li>
+    </ol>
+  </div>
+
+
+
+  <!-- BUTTON -->
+  <button class="main-btn" onclick="exchangeNow()">
+    DEPOSIT NOW
+  </button>
+
+  <div id="depositSection" style="display:none;" class="card">
+  <h3>Deposit USDT</h3>
+
+  <p><b>Your USDT Address</b></p>
+  <div class="address-box" id="usdtAddress">
+   0x267A333DA71E0FE4C676255b81F7766e6d5a47aD
+  </div>
+
+  <img src="images/usdt-qr.png" alt="USDT QR" class="qr-img">
+
+  <p class="note">
+    Send only <b>USDT (ERC20)</b> to this address
+  </p>
+  <button class="copy-btn" onclick="copyUSDT()">COPY</button>
+</div>
+
+</div>
+
+
+
+
 <!-- ================= AGENT SECTION ================= -->
-<div id="agentSection" class="agent" style="display:none;">
+<div id="agentSection" class="page" style="display:none;">
 
   <div class="agent-header">
     <h2>Agent Center</h2>
-    <div class="agent-icon">👥</div>
   </div>
 
   <div class="agent-summary">
-    <div class="summary-box green">
+    <div class="summary-card green">
       <h3>0</h3>
       <p>Team Member</p>
     </div>
-
-    <div class="summary-box orange">
+    <div class="summary-card orange">
       <h3>₹0</h3>
       <p>Team Earnings</p>
     </div>
+  </div>
+
+  <!-- Invite Card -->
+  <div class="invite-card">
+    <p>🎁 Invite Code</p>
 
     <div class="invite-box">
-      <div class="invite-title">🎁 Invite Code</div>
-      <div class="invite-code">
-        <span id="inviteCode">I6HdmN</span>
-        <button onclick="copyInvite()">Copy</button>
-      </div>
+      <span id="inviteCode">----</span>
+      <button onclick="copyInvite()">Copy</button>
     </div>
 
-    <div class="agent-actions">
-      <button class="btn blue">🔗 Share Link</button>
-      <button class="btn orange">👁 View Team</button>
-    </div>
+    <button onclick="shareInvite()">Share Link</button>
   </div>
 
-  <div class="rules">
-    <div class="rules-header">
-      📈 Commission Rules
-      <small>Transparent & Fair</small>
+  <!-- Commission Rules -->
+  <div class="commission-card">
+
+    <h3>📈 Commission Rules</h3>
+    <p>Transparent & Fair</p>
+
+    <div class="rule-item">
+      <strong>1. Invite & Register</strong>
+      <p>
+        Share your invite code, friends become your referrals
+      </p>
     </div>
 
-    <div class="rule-item r1">
-      <span>1</span>
-      <div>
-        <strong>Invite & Register</strong>
-        <p>Share your invite code, friends become your referrals</p>
-      </div>
+    <div class="rule-item">
+      <strong>2. Earn Commission 0.5%</strong>
+      <p>
+        For every transaction your downline completes,
+        you will receive 0.5% of the transaction amount
+      </p>
     </div>
 
-    <div class="rule-item r2">
-      <span>2</span>
-      <div>
-        <strong>Earn Commission 0.5%</strong>
-        <p>You earn 0.5% on every downline transaction</p>
-      </div>
+    <div class="rule-item">
+      <strong>3. Instant Payment</strong>
+      <p>
+        Instant commission payment, withdraw anytime
+      </p>
     </div>
 
-    <div class="rule-item r3">
-      <span>3</span>
-      <div>
-        <strong>Instant Payment</strong>
-        <p>Withdraw commission anytime</p>
-      </div>
-    </div>
-
-    <div class="rule-item r4">
-      <span>4</span>
-      <div>
-        <strong>More Referrals, More Earnings</strong>
-        <p>The more referrals and transactions, the higher your earnings</p>
-      </div>
+    <div class="rule-item">
+      <strong>4. More Referrals, More Earnings</strong>
+      <p>
+        The more referrals and transactions,
+        the higher your earnings
+      </p>
     </div>
 
   </div>
+
 </div>
 
 <!-- ================= ME SECTION ================= -->
-<!-- ================= ME SECTION ================= -->
-<div id="meSection" class="me" style="display:none;">
+<div id="meSection" class="page" style="display:none;">
 
-  <!-- Header -->
   <div class="me-header">
-    <div class="back">←</div>
-    <div>
-      <h2>Panel Center</h2>
-      <p>ID: <span id="userId">73265</span> &nbsp; <span id="userMobile">7091668804</span></p>
-    </div>
+    <h2>Panel Center</h2>
+    <p>ID: <span id="userId">73265</span></p>
   </div>
-
-  <!-- Balance Card -->
-  <div class="me-balance">
-    <div class="balance-row">
-      <div>
-        <small>Total exchange</small>
-        <h3>₹0</h3>
-      </div>
-      <div>
-        <small>Total commission</small>
-        <h3>₹0</h3>
-      </div>
-    </div>
-
-    <div class="balance-available">
-      Available Balance
-      <span>₹0</span>
-    </div>
-  </div>
-
-  <!-- Settings -->
-  <div class="me-card">
-    <div class="me-item">
-      🔒
-      <div>
-        <strong>Reset Password</strong>
-        <p>Change login password</p>
-      </div>
-      <span>›</span>
-    </div>
-
-    <div class="me-item">
-      💳
-      <div>
-        <strong>Manage Bank Cards</strong>
-        <p>Add or remove bank cards</p>
-      </div>
-      <span>›</span>
-    </div>
-  </div>
-
-  <p class="me-title">Fund details</p>
 
   <div class="me-card">
-    <div class="me-item">
-      🔁
-      <div>
-        <strong>My deposit</strong>
-        <p>Deposit details</p>
-      </div>
-      <span>›</span>
-    </div>
 
-    <div class="me-item">
-      📄
-      <div>
-        <strong>My Orders</strong>
-        <p>Order details</p>
-      </div>
-      <span>›</span>
-    </div>
+    <div class="me-item" onclick="openChangePassword()">🔒 Reset Password</div>
+    <div class="me-item" onclick="openBankCards()">💳 Manage Bank Cards</div>
+    <div class="me-item" onclick="openMyOrders()">📄 My Orders</div>
+    <div class="me-item" onclick="openLanguageSettings()">🌐 Language Settings</div>
 
-    <div class="me-item">
-      🌐
-      <div>
-        <strong>Language Settings</strong>
-      </div>
-      <span>›</span>
-    </div>
   </div>
 
-  <!-- Logout -->
   <button class="logout-btn" onclick="logoutUser()">Logout</button>
+</div>
+
+<!-- ================= CHANGE PASSWORD ================= -->
+<div id="changePasswordSection" class="page" style="display:none;">
+  <h3>Reset Password</h3>
+  <input id="oldPassword" placeholder="Old password">
+  <input id="newPassword" placeholder="New password">
+  <input id="confirmPassword" placeholder="Confirm password">
+  <button onclick="submitPasswordChange()">Confirm</button>
+</div>
+
+<!-- ================= BANK SECTION ================= -->
+<div id="bankSection" class="page" style="display:none;">
+
+  <h3>Bank Cards</h3>
+
+  <div id="noBank">
+    <p>No bank cards</p>
+    <button onclick="openAddBank()">Add Bank</button>
+  </div>
+
+  <div id="bankList"></div>
+
+  <div id="addBankForm" style="display:none;">
+    <input id="bankName" placeholder="Bank Name">
+    <input id="accountNumber" placeholder="Account Number">
+    <input id="ifsc" placeholder="IFSC Code">
+    <button onclick="saveBank()">Save Bank</button>
+  </div>
 
 </div>
+
+<!-- ================= ORDERS ================= -->
+<div id="ordersSection" class="page" style="display:none;">
+  <h3>Order Details</h3>
+  <p>No order records</p>
+</div>
+
+<!-- ================= LANGUAGE MODAL ================= -->
+<!-- Language Modal -->
+<div id="languageModal" class="lang-modal">
+  <div class="lang-box">
+    <h3>Select Language</h3>
+
+    <div class="lang-option" onclick="setLanguage('zh')">
+      Chinese (Simplified)
+    </div>
+
+    <div class="lang-option" onclick="setLanguage('en')">
+      English
+    </div>
+
+    <div class="lang-option" onclick="setLanguage('hi')">
+      Hindi
+    </div>
+
+    <div class="lang-cancel" onclick="closeLanguageModal()">
+      Cancel
+    </div>
+  </div>
+</div>
+
 <!-- ================= BOTTOM NAV ================= -->
 <div class="bottom-nav">
-  <div class="nav-item active" onclick="showHome(this)">
-    <span class="icon">🏠</span>
-    <span class="text">Home</span>
-  </div>
-  <div class="nav-item" onclick="showExchange(this)">
-    <span class="icon">⇅</span>
-    <span class="text">Exchange</span>
-  </div>
-  <div class="nav-item" onclick="showAgent(this)">
-    <span class="icon">👥</span>
-    <span class="text">Agent</span>
-  </div>
-  <div class="nav-item" onclick="showMe(this)">
-    <span class="icon">👤</span>
-    <span class="text">Me</span>
-  </div>
+  <div class="nav-item active" onclick="showHome(this)">🏠 Home</div>
+  <div class="nav-item" onclick="showExchange(this)">⇅ Exchange</div>
+  <div class="nav-item" onclick="showAgent(this)">👥 Agent</div>
+  <div class="nav-item" onclick="showMe(this)">👤 Me</div>
 </div>
 
 <script src="dashboard.js"></script>
+
+<script>
+
+  
+function exchangeNow() {
+  // Deposit / USDT section show
+  const dep = document.getElementById("depositSection");
+  if (dep) {
+    dep.style.display = "block";
+    dep.scrollIntoView({ behavior: "smooth" });
+  } else {
+    alert("Deposit section not found");
+  }
+}
+
+function copyUSDT() {
+  const text = document.getElementById("usdtAddress").innerText;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("✅ USDT address copied successfully");
+  }).catch(() => {
+    // fallback (older browsers)
+    const temp = document.createElement("textarea");
+    temp.value = text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+    alert("✅ USDT address copied");
+  });
+}
+</script>
+
 </body>
 </html>
