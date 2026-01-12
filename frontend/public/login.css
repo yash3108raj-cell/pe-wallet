@@ -604,3 +604,25 @@ h1 {
   padding: 14px 0;
   background: transparent;
 }
+.pe-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    180deg,
+    #e8ffff 0%,
+    #7fffd4 45%,
+    #00e6c3 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.4),
+    0 4px 10px rgba(0,255,200,0.35),
+    0 10px 25px rgba(0,0,0,0.45);
+
+  text-align: center;
+}
