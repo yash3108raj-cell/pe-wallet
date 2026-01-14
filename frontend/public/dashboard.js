@@ -227,7 +227,7 @@ function logoutUser() {
 
 /* ================== TELEGRAM ================== */
 function joinTelegram() {
-  window.location.href = "https://t.me/Doctor56t";
+  window.location.href = "https://t.me/tr2ue0";
 }
 
 /* ================== INIT ================== */
