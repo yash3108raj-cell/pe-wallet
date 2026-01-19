@@ -281,7 +281,7 @@ showExchange = function(el) {
   setTimeout(showSelectedBank, 50);
 };
 
-const RATE = 107;
+const RATE = 103;
 
 /* open deposit exchange page */
 function openDepositExchange() {
