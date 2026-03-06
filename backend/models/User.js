@@ -10,18 +10,26 @@ const userSchema = new mongoose.Schema({
     default: 0 
   },
 
-  sellActive: {
-    type: Boolean,
-    default: false
-  },
+ sellMode: {
+ type: Boolean,
+ default: false
+},
 
-  banks: [
-    {
-      bankName: String,
-      acc: String,
-      ifsc: String
-    }
-  ]
+isLiveSell: {
+ type: Boolean,
+ default: false
+},
+
+paymentMethod: {
+ type: {
+  type: String,
+  default: null
+ },
+ bankName: String,
+ acc: String,
+ ifsc: String,
+ upiId: String
+}
 
 });
 
