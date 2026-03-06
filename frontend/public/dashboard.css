@@ -2971,5 +2971,122 @@ body {
 #cmd:hover::before {
   left: 100%;
 }
+/* GLOBAL RESPONSIVE FIX */
 
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+padding:0;
+width:100%;
+overflow-x:hidden;
+}
+
+/* PAGE WIDTH CONTROL */
+
+.page{
+width:100%;
+max-width:420px;
+margin:auto;
+padding:10px;
+}
+
+/* MOBILE SAFE WIDTH */
+
+.card,
+.bridge-card,
+.notice-card,
+.rate-card,
+.banner{
+width:100%;
+}
+ #homeSection{
+width:100%;
+max-width:420px;
+margin:auto;
+}
+ #exchangeSection{
+width:100%;
+max-width:420px;
+margin:auto;
+}
+ .card{
+width:100%;
+padding:16px;
+border-radius:12px;
+}
+ button{
+max-width:100%;
+}
+ @media(max-width:480px){
+
+.page{
+padding:12px;
+}
+
+.bridge-card{
+padding:18px;
+}
+
+.rate-card{
+flex-direction:column;
+gap:10px;
+align-items:flex-start;
+}
+
+}
+ @media(min-width:768px){
+
+.page{
+max-width:420px;
+margin:auto;
+}
+
+}
+
+.balance-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:15px;
+}
+
+.balance-info{
+display:flex;
+flex-direction:column;
+}
+
+.balance-label{
+font-size:13px;
+color:#777;
+}
+
+.balance-amount{
+font-size:20px;
+font-weight:600;
+}
+
+.sell-3d-btn{
+background:#ff4d4d;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+cursor:pointer;
+}
+ @media(max-width:480px){
+
+.balance-row{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+.sell-3d-btn{
+width:100%;
+}
+
+}
 
