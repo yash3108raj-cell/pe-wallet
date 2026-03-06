@@ -4,7 +4,7 @@ async function loadStats(){
 
   try{
 
-    const res = await fetch("/admin-stats");
+    const res = await fetch("https://trust-pay.onrender.com/admin-stats");
     const data = await res.json();
 
     document.getElementById("totalUsers").innerText = data.totalUsers;
@@ -27,7 +27,7 @@ async function loadActiveSellers(){
 
   try{
 
-    const res = await fetch("/admin-active-sellers");
+    const res = await fetch("https://trust-pay.onrender.com/admin-active-sellers");
     const users = await res.json();
 
     const box = document.getElementById("sellerList");
@@ -85,7 +85,7 @@ async function loadLiveSellers(){
 
   try{
 
-    const res = await fetch("/admin-live-sell-users");
+    const res = await fetch("https://trust-pay.onrender.com/admin-live-sell-users");
     const users = await res.json();
 
     const box = document.getElementById("liveSellUsers");
@@ -209,7 +209,7 @@ async function searchUser(){
 
   const id = document.getElementById("searchId").value;
 
-  const res = await fetch("/admin-search-user/"+id);
+  const res = await fetch("https://trust-pay.onrender.com/admin-search-user/"+id);
 
   const user = await res.json();
 
@@ -264,7 +264,7 @@ async function addBalance(userId){
 
   const amount = document.getElementById("addAmount").value;
 
-  await fetch("/admin-add-balance",{
+  await fetch("https://trust-pay.onrender.com/admin-add-balance",{
 
     method:"POST",
 
@@ -293,7 +293,7 @@ async function deductBalance(userId){
 
   const amount = document.getElementById("deduct-"+userId).value;
 
-  await fetch("/admin-deduct-balance",{
+  await fetch("https://trust-pay.onrender.com/admin-deduct-balance",{
 
     method:"POST",
 
