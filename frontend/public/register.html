@@ -14,12 +14,15 @@
   <!-- Header -->
   <div class="top-bar">
     <a href="index.html" class="back">←</a>
-    <h2>BGCash</h2>
+    <h2></h2>
   </div>
 
   <!-- Logo -->
   <div class="logo">
-    <img src="logo-transparent.png" alt="trust pay">
+
+   
+    <img src="./images/logo-transparent.png" alt="">
+
   </div>
 
   <!-- Welcome -->
@@ -45,11 +48,29 @@
   </div>
 
   <!-- Captcha -->
-  <div class="captcha-box">
-    <span id="q">Loading...</span>
-    <input id="a" type="text" placeholder="Captcha answer">
-  </div>
+ <div class="form-group">
 
+<label>Captcha Verification</label>
+
+<div class="captcha-container">
+
+<div class="captcha-question" id="captchaQuestion">
+9 + 3 
+</div>
+
+<input
+type="number"
+id="captchaInput"
+placeholder="Enter captcha"
+/>
+
+<button type="button" onclick="generateCaptcha()">
+↻
+</button>
+
+</div>
+
+</div>
   <!-- Button -->
   <button class="login-btn" onclick="register()">Create Account</button>
 
@@ -89,6 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function register() {
+
+  if(!checkCaptcha()){
+return;
+}
   const mobile = document.getElementById("m").value.trim();
   const password = document.getElementById("p").value.trim();
   const ans = document.getElementById("a").value.trim();
@@ -118,6 +143,35 @@ function register() {
     }
   })
   .catch(() => alert("Server error"));
+}
+
+let captchaAnswer = 0;
+
+function generateCaptcha(){
+
+let a = Math.floor(Math.random()*10)+1;
+let b = Math.floor(Math.random()*10)+1;
+
+captchaAnswer = a + b;
+
+document.getElementById("captchaQuestion").innerText =
+a + " + " + b + " = ?";
+
+}
+
+function checkCaptcha(){
+
+let user = document.getElementById("captchaInput").value;
+
+if(parseInt(user) !== captchaAnswer){
+
+alert("Wrong captcha");
+return false;
+
+}
+
+return true;
+
 }
    
 </script>
