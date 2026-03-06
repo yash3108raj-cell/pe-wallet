@@ -1,4 +1,3 @@
-
 /* ================== COMMON ================== */
 function hideAll() {
   document.querySelectorAll(".page").forEach(p => {
@@ -367,7 +366,7 @@ function logoutUser() {
 
 /* ================== TELEGRAM ================== */
 function joinTelegram() {
-  window.location.href = "https://t.me/Doctor56t";
+  window.location.href = "https://t.me/tr2ue0";
 }
 
 /* ================== INIT ================== */
@@ -476,7 +475,7 @@ function calculateINR() {
 
 
 function confirmExchange() {
-  alert("Your balance is too low");
+  alert("This Feature is not Added");
 }
 
 
@@ -763,4 +762,5 @@ function copyUSDT() {
   const address = document.getElementById("usdtAddress").innerText;
   navigator.clipboard.writeText(address);
   alert("Address copied!");
+
 }
