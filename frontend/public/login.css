@@ -37,7 +37,7 @@ body{
   margin:20px 0;
 }
 .logo img{
-  height:50px;
+  height:98px;
 }
 
 /* Text */
@@ -213,7 +213,7 @@ body {
 input[type="text"],
 input[type="password"],
 input[type="number"] {
-  width: 100%;
+ 
   padding: 14px;
   margin-bottom: 16px;
   border-radius: 12px;
@@ -392,7 +392,7 @@ body {
 }
 
 .logo img {
-  width: 70px;
+  width: 160px;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,.6));
 }
 
@@ -606,6 +606,7 @@ h1 {
 }
 
 
+
 * {
   margin: 0;
   padding: 0;
@@ -663,6 +664,31 @@ h1, h2, h3 {
 
 
  
+
+.pe-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    180deg,
+    #e8ffff 0%,
+    #7fffd4 45%,
+    #00e6c3 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.4),
+    0 4px 10px rgba(0,255,200,0.35),
+    0 10px 25px rgba(0,0,0,0.45);
+
+  text-align: center;
+}
+
+
 
 body{
   min-height:100vh;
@@ -913,3 +939,21 @@ h1{
     drop-shadow(0 3px 8px rgba(0,0,0,0.75));
 }
 
+.captcha-container{
+
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:8px;
+
+}
+
+.captcha-question{
+
+background:#2a2a2a;
+color:#00eaff;
+padding:10px 14px;
+border-radius:6px;
+font-weight:bold;
+
+}
