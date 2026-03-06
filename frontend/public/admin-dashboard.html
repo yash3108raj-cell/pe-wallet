@@ -1,117 +1,66 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<title>Admin Dashboard</title>
-
-<link rel="stylesheet" href="admin.css">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
 </head>
-
-
 <body>
 
 <div class="admin-container">
 
-<!-- SIDEBAR -->
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>PE WALLET</h2>
+    <ul>
+      <li onclick="showDashboard()">Dashboard</li>
+      <li onclick="loadActiveSellers()">Active Sellers</li>
+    </ul>
+  </div>
 
-<div class="sidebar">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
 
-<h2>PE WALLET</h2>
+    <!-- TOP STATS -->
+    <div class="stats-container">
+      <div class="stat-box">
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+      </div>
 
-<ul>
+      <div class="stat-box">
+        <h3>Total Deposits</h3>
+        <p id="totalDeposits">0</p>
+      </div>
 
-<li onclick="showDashboard()">Dashboard</li>
+      <div class="stat-box">
+        <h3>Pending Deposits</h3>
+        <p id="pendingDeposits">0</p>
+      </div>
 
-<li onclick="loadActiveSellers()">Active Sellers</li>
+      <div class="stat-box">
+        <h3>Total Revenue</h3>
+        <p id="totalRevenue">0</p>
+      </div>
+    </div>
 
-</ul>
-
+    <div class="section">
+  <h2>Search User</h2>
+  <input type="number" id="searchId" placeholder="Enter User ID">
+  <button onclick="searchUser()">Search</button>
+  <div id="searchResult"></div>
 </div>
 
+    <!-- SELL USERS SECTION -->
+    <div class="section">
+      <h2>Active Sell Users</h2>
+      <div id="sellerList"></div>
 
-<!-- MAIN CONTENT -->
+      <h2>Live Sell Users</h2>
+<div id="liveSellUsers"></div>
+    </div>
 
-<div class="main-content">
-
-
-<!-- TOP STATS -->
-
-<div class="stats-container">
-
-<div class="stat-box">
-<h3>Total Users</h3>
-<p id="totalUsers">0</p>
+  </div>
 </div>
-
-<div class="stat-box">
-<h3>Total Deposits</h3>
-<p id="totalDeposits">0</p>
-</div>
-
-<div class="stat-box">
-<h3>Pending Deposits</h3>
-<p id="pendingDeposits">0</p>
-</div>
-
-<div class="stat-box">
-<h3>Total Revenue</h3>
-<p id="totalRevenue">0</p>
-</div>
-
-</div>
-
-
-
-<!-- SEARCH USER -->
-
-<div class="section">
-
-<h2>Search User</h2>
-
-<input type="number"
-id="searchId"
-placeholder="Enter User ID">
-
-<button onclick="searchUser()">
-Search
-</button>
-
-<div id="searchResult"></div>
-
-</div>
-
-
-
-<!-- SELL USERS -->
-
-<div class="section">
-
-<h2>Active Sell Users</h2>
-
-<div id="sellerList">
-Loading...
-</div>
-
-
-<h2>Live Sell Users</h2>
-
-<div id="liveSellUsers">
-Loading...
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- LOAD JS AFTER PAGE -->
 
 <script src="admin.js"></script>
 
