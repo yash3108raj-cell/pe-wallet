@@ -58,11 +58,7 @@
 9 + 3 
 </div>
 
-<input
-type="number"
-id="captchaInput"
-placeholder="Enter captcha"
-/>
+<input type="number" id="captchaInput" placeholder="Enter captcha">
 
 <button type="button" onclick="generateCaptcha()">
 ↻
@@ -105,18 +101,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(r => r.json())
     .then(d => {
       cid = d.id;
-      document.getElementById("q").innerText = d.question; // FIX
+     document.getElementById("captchaQuestion").innerText = d.question; // FIX
     });
 });
 
 function register() {
 
-  if(!checkCaptcha()){
-return;
-}
+ 
   const mobile = document.getElementById("m").value.trim();
   const password = document.getElementById("p").value.trim();
-  const ans = document.getElementById("a").value.trim();
+ const ans = document.getElementById("captchaInput").value.trim();
 
   if (!mobile || !password || !ans) { // FIX
     alert("All fields are required");
