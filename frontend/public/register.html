@@ -139,19 +139,9 @@ function register() {
   .catch(() => alert("Server error"));
 }
 
-let captchaAnswer = 0;
 
-function generateCaptcha(){
 
-let a = Math.floor(Math.random()*10)+1;
-let b = Math.floor(Math.random()*10)+1;
 
-captchaAnswer = a + b;
-
-document.getElementById("captchaQuestion").innerText =
-a + " + " + b + " = ?";
-
-}
 
 function checkCaptcha(){
 
