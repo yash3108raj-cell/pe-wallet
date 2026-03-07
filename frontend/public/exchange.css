@@ -460,3 +460,90 @@ input {
 .copy-btn:active {
   transform: scale(0.96);
 }
+.sell-3d-btn{
+width:120px;
+height:42px;
+font-size:14px;
+border-radius:8px;
+}
+
+.balance-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+
+
+ .balance-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.balance-info{
+display:flex;
+flex-direction:column;
+}
+
+.sell-3d-btn{
+width:120px;
+height:42px;
+font-size:14px;
+border-radius:8px;
+}
+ @media (max-width:600px){
+
+.balance-row{
+flex-direction:row;
+justify-content:space-between;
+}
+
+.sell-3d-btn{
+width:110px;
+height:38px;
+font-size:13px;
+}
+
+}
+
+ .rate-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border-radius:12px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:white;
+}
+
+.rate-card h3{
+margin:0;
+font-size:20px;
+}
+
+.deposit-btn-small{
+padding:8px 16px;
+border:none;
+border-radius:8px;
+background:white;
+color:#0072ff;
+font-weight:600;
+cursor:pointer;
+}
+ @media (max-width:600px){
+
+.rate-card{
+flex-direction:row;
+}
+
+.deposit-btn-small{
+padding:6px 14px;
+font-size:13px;
+}
+
+}
