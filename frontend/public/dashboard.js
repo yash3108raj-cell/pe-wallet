@@ -408,6 +408,8 @@ showExchange = function(el) {
   setTimeout(showSelectedBank, 50);
 };
 
+                                                            /* USDT RATE GLOBAL */
+
 const RATE = 105.5;
 
 /* open deposit exchange page */
@@ -762,5 +764,21 @@ function copyUSDT() {
   const address = document.getElementById("usdtAddress").innerText;
   navigator.clipboard.writeText(address);
   alert("Address copied!");
+
+}
+
+
+function toggleFaq(num){
+
+  const answer = document.getElementById("faqAnswer"+num);
+  const icon = document.getElementById("faqIcon"+num);
+
+  if(answer.style.display === "none"){
+      answer.style.display = "block";
+      icon.innerHTML = "-";
+  }else{
+      answer.style.display = "none";
+      icon.innerHTML = "+";
+  }
 
 }
