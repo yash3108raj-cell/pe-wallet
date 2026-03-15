@@ -231,10 +231,13 @@ async function updateUserBalance(userId, amount) {
 }
 
 // ================== TRC20 MONITOR ==================
-async function checkTransactions() {
+
+  async function checkTransactions() {
   try {
 
+    // pending orders only
     const pendingOrders = await Order.find({ status: "pending" });
+
     if (pendingOrders.length === 0) return;
 
     const response = await axios.get(
@@ -245,46 +248,61 @@ async function checkTransactions() {
 
     for (let tx of txs) {
 
+      // only USDT TRC20
       if (tx.token_info.address !== USDT_CONTRACT) continue;
 
       const amount = Number(tx.value) / 1000000;
 
-      const order = pendingOrders.find(o =>
-        Number(o.uniqueAmount.toFixed(6)) === Number(amount.toFixed(6))
-      );
+      // 🔥 professional amount match (tolerance system)
+      const order = pendingOrders.find(o => {
+
+        const orderAmount = Number(o.uniqueAmount);
+        const diff = Math.abs(orderAmount - amount);
+
+        return diff < 0.00001; // tolerance
+
+      });
 
       if (!order) continue;
+
       if (order.status === "completed") continue;
 
-      // 🔥 Duplicate protection
-const alreadyUsed = await Order.findOne({
-  txHash: tx.transaction_id
-});
+      // duplicate protection
+      const alreadyUsed = await Order.findOne({
+        txHash: tx.transaction_id
+      });
 
-if (alreadyUsed) continue;
+      if (alreadyUsed) continue;
 
+      // confirmation check
       const txInfo = await axios.get(
-        `https://api.trongrid.io/v1/transactions/${tx.transaction_id}`
+       ` https://api.trongrid.io/v1/transactions/${tx.transaction_id}`
       );
 
       const confirmations = txInfo.data.confirmations || 0;
+
       if (confirmations < REQUIRED_CONFIRMATIONS) continue;
 
+      // mark completed
       order.txHash = tx.transaction_id;
       order.confirmations = confirmations;
       order.status = "completed";
+
       await order.save();
 
+      // add balance
       await updateUserBalance(order.userId, order.baseAmount);
 
       console.log("Deposit credited:", order.orderId);
+
     }
 
   } catch (err) {
+
     console.log("Monitoring error:", err.message);
+
   }
 }
-
 
 // ================== AUTO DELETE EXPIRED ORDERS ==================
 async function deleteExpiredOrders() {
