@@ -24,34 +24,57 @@ async function loadActiveSellers() {
     return;
   }
 
-  let html = "";
+ let html = "";
 
- users.forEach(u => {
-  html += `
-    <div class="seller-card">
-      <strong>User ID:</strong> ${u.userId}<br>
-      <strong>Balance:</strong> ₹${u.balance}<br>
-      ${u.paymentMethod?.type === "upi"
-? `<strong>UPI:</strong> ${u.paymentMethod.upiId}<br>`
-: `<strong>Bank:</strong> ${u.banks?.[0]?.bankName || "N/A"}<br>
-<strong>Account:</strong> ${u.banks?.[0]?.acc || "N/A"}<br>`
+users.forEach(u => {
+
+let payment = "";
+
+if (u.paymentMethod && u.paymentMethod.type === "upi") {
+
+payment =
+"<strong>UPI:</strong> " + (u.paymentMethod.upiId || "N/A");
+
 }
-      <button onclick="approveSell(${u.userId})">   
-        Approve
-      </button>
 
-      <button onclick="setLiveSell(${u.userId})"
-        style="background:green;color:white;margin-top:5px;">
-        Move to Live Sell
-      </button>
+else if (u.paymentMethod && u.paymentMethod.type === "bank") {
 
-    </div>
-  `;
+payment =
+"<strong>Bank:</strong> " + (u.paymentMethod.bankName || "N/A") + "<br>" +
+"<strong>Account:</strong> " + (u.paymentMethod.acc || "N/A") + "<br>" +
+"<strong>IFSC:</strong> " + (u.paymentMethod.ifsc || "N/A");
+
+}
+
+else {
+
+payment = "No payment method";
+
+}
+
+html += `
+<div class="seller-card">
+
+<strong>User ID:</strong> ${u.userId}<br>
+<strong>Balance:</strong> ₹${u.balance}<br>
+
+${payment}<br>
+
+<button onclick="approveSell(${u.userId})">
+Approve
+</button>
+
+<button onclick="setLiveSell(${u.userId})"
+style="background:green;color:white;margin-top:5px;">
+Move to Live Sell
+</button>
+
+</div>
+`;
 
 });
-  
 
-  box.innerHTML = html;
+box.innerHTML = html;
 } 
 
 async function loadLiveSellers() {
