@@ -244,7 +244,6 @@ button {
   color: red;
   font-weight: bold;
 }
-
 /* ===== BOTTOM NAV ===== */
 .bottom-nav {
   position: fixed;
@@ -475,7 +474,6 @@ button {
   box-shadow:
     0 6px 14px rgba(0, 90, 160, 0.1);
 }
-
 /* titles */
 .rule-item strong {
   display: block;
@@ -705,7 +703,6 @@ button {
     inset 6px 6px 12px rgba(0,0,0,.2),
     inset -6px -6px 12px rgba(255,255,255,.35);
 }
-
 .page{
   background: linear-gradient(180deg,#f5fbff,#eefaf5);
   padding:16px;
@@ -936,8 +933,7 @@ button {
     18px 18px 40px rgba(0,0,0,.12),
     -14px -14px 28px rgba(255,255,255,1);
 }
-
-/* ================================
+ /* ================================
    SUMMARY CARDS – NUMBERS POP
 ================================ */
 .summary-card h3 {
@@ -1123,7 +1119,6 @@ button {
 .summary-card.orange {
   border-left: 6px solid #38bdf8;
 }
-
 /* ===============================
    INVITE SECTION – LIGHT & CLEAN
 ================================ */
@@ -1306,7 +1301,6 @@ button {
     0 12px 22px rgba(96,165,250,.35),
     inset 0 1px 0 rgba(255,255,255,.8);
 }
-
 .invite-card button:hover {
   transform: translateY(-3px);
   box-shadow:
@@ -1546,8 +1540,7 @@ button {
   border: 1px solid rgba(255,255,255,0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-.card:active,
+ .card:active,
 .exchange-process:active {
   transform: scale(0.98);
   box-shadow: var(--shadow-deep);
@@ -1725,8 +1718,7 @@ button {
   box-shadow:
     0 35px 90px rgba(0,188,212,.9);
 }
-
-/* ================= FEATURES ================= */
+ /* ================= FEATURES ================= */
 .features{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -1930,8 +1922,7 @@ button {
 .deposit-btn-wrap{
   margin:22px 0 90px;
 }
-
-/* ================= REMOVE EXTRA GAPS ================= */
+ /* ================= REMOVE EXTRA GAPS ================= */
 .page{
   padding-bottom:110px !important;
   margin-bottom:0 !important;
@@ -2158,10 +2149,7 @@ body{
   padding-bottom: 120px; /* bottom nav safe */
   background: linear-gradient(180deg, #e0f7fa, #f6fdff);
 }
-
-
-
-#bankSection h3 {
+ #bankSection h3 {
   font-size: 22px;
   font-weight: 800;
   margin-bottom: 16px;
@@ -2360,8 +2348,7 @@ h1, h2, h3, h4{
   font-weight:700;
   letter-spacing:-0.3px;
 }
-
-/* Normal text */
+ /* Normal text */
 p, span, div{
   font-weight:400;
 }
@@ -2610,8 +2597,7 @@ body.auth {
 body {
   overflow-x: hidden;
 }
-
-.balance-row {
+ .balance-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2845,8 +2831,7 @@ body {
 .address-wrapper {
   margin-top: 10px;
 }
-
-.address-box {
+ .address-box {
   background: #f5f7fa;
   padding: 14px;
   border-radius: 10px;
@@ -2940,11 +2925,10 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
 
-  color: #00ff9d;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color:  #37828b;
+  background:  linear-gradient(135deg, #bfbfbf, #ffffff, #32ade3);
 
-  box-shadow: 
-    0 4px 15px rgba(0,0,0,0.2),
+  box-shadow:  0 4px 15px rgba(0,0,0,0.2),
     inset 0 0 10px rgba(0,255,157,0.2);
 
   position: relative;
@@ -2971,6 +2955,7 @@ body {
 #cmd:hover::before {
   left: 100%;
 }
+
 /* GLOBAL RESPONSIVE FIX */
 
 *{
@@ -3089,4 +3074,988 @@ width:100%;
 }
 
 }
+
+                                           /* new code for exchanhe and me  */
+
+
+.bottom-nav{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+background:white;
+
+border-radius:30px;
+
+display:flex;
+justify-content:space-around;
+align-items:center;
+
+padding:10px 5px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+z-index:999;
+}
+
+.nav-item{
+flex:1;
+text-align:center;
+font-size:13px;
+color:#555;
+font-weight:500;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+}
+
+.nav-item.active{
+color:#4CAF50;
+font-weight:600;
+}
+ .nav-item.active::before{
+content:"";
+width:40px;
+height:40px;
+background:#e8f6e8;
+border-radius:50%;
+position:absolute;
+z-index:-1;
+}
+.page{
+padding:15px;
+padding-bottom:100px;
+font-family:'Inter',sans-serif;
+background:#f6f8fb;
+min-height:100vh;
+}
+.card{
+background:white;
+border-radius:18px;
+
+padding:18px;
+
+box-shadow:
+0 6px 20px rgba(0,0,0,0.08);
+
+margin-bottom:15px;
+}
+ .rate-card{
+background:linear-gradient(135deg,#b8f1d6,#c6f3e5);
+
+border-radius:18px;
+
+padding:18px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+ button{
+border:none;
+border-radius:12px;
+padding:10px 16px;
+
+font-weight:600;
+
+cursor:pointer;
+}
+
+.main-btn{
+background:linear-gradient(135deg,#00c853,#00e676);
+color:white;
+}
+
+.deposit-btn{
+background:#00c853;
+color:white;
+}
+
+.sell-3d-btn{
+background:linear-gradient(180deg,#ff5f6d,#ff2d55);
+color:white;
+
+box-shadow:
+0 6px 0 #c81d3f;
+}
+
+.sell-3d-btn:active{
+transform:translateY(3px);
+box-shadow:0 2px 0 #c81d3f;
+}
+ .quick{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.quick button{
+background:#f0f3f7;
+border-radius:10px;
+padding:8px 12px;
+font-size:13px;
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= ONLY EXCHANGE BACKGROUND ================= */
+#exchangeSection {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ===== BACKGROUND IMAGE (ONLY EXCHANGE) ===== */
+#exchangeSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("images/background.usdt.jpg") no-repeat center center;
+  background-size: cover;
+
+  z-index: 0;
+}
+
+/* ===== DARK OVERLAY ===== */
+#exchangeSection::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.35);
+
+  z-index: 1;
+}
+
+/* ===== CONTENT ABOVE ===== */
+#exchangeSection * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== REMOVE WHITE BACKGROUND ===== */
+#exchangeSection,
+#exchangeSection .page {
+  background: transparent !important;
+}
+
+/* ===== GLASS UI ===== */
+#exchangeSection .card,
+#exchangeSection .rate-card,
+#exchangeSection .exchange-process,
+#exchangeSection .balance-row {
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* ===== TEXT ===== */
+#exchangeSection p,
+#exchangeSection span,
+#exchangeSection .label,
+#exchangeSection .small {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* ===== INPUT ===== */
+#exchangeSection input {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+/* ===== BUTTON ===== */
+#exchangeSection .deposit-btn,
+#exchangeSection .confirm-btn {
+  background: linear-gradient(135deg,#00e6a8,#00cfff);
+  color: #fff;
+}
+
+/* ===== SELL BUTTON ===== */
+#exchangeSection .sell-3d-btn {
+  background: linear-gradient(135deg,#ff5f6d,#ff2d55);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== AGENT PAGE BASE ===== */
+#agentSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 18px;
+  overflow: hidden;
+}
+
+/* ===== BACKGROUND IMAGE (CLEAR VISIBLE) ===== */
+#agentSection::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: 
+    linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), /* 🔥 light overlay */
+    url("images/agent.background.jpg") no-repeat center;
+
+  background-size: cover;
+  z-index: -1;
+}
+
+/* ===== REMOVE WHITE BACKGROUND ===== */
+.page {
+  background: transparent !important;
+}
+
+/* ===== HEADER ===== */
+#agentSection .agent-header {
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  padding: 18px;
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#agentSection .agent-header h2 {
+  color: #00897b;
+  font-weight: 700;
+}
+
+#agentSection .agent-header p {
+  color: #333;
+}
+
+/* ===== CARDS (GLASS LIGHT) ===== */
+#agentSection .summary-card,
+#agentSection .invite-card,
+#agentSection .commission-card,
+#agentSection .rule-item {
+
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(14px);
+
+  border-radius: 20px;
+  padding: 16px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ===== TEXT ===== */
+#agentSection h3 {
+  color: #111;
+  font-weight: 600;
+}
+
+#agentSection p {
+  color: #444;
+}
+
+#agentSection span {
+  color: #00796b;
+}
+
+/* ===== NUMBERS ===== */
+#agentSection .summary-card h3 {
+  color: #00bfa5;
+  font-size: 22px;
+}
+
+/* ===== REFERRAL INPUT ===== */
+#agentSection input {
+
+  background: rgba(255,255,255,0.6);
+  color: #111;
+
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.1);
+
+  padding: 14px;
+  font-weight: 600;
+
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== COPY BUTTON ===== */
+#agentSection .copy-btn {
+  background: linear-gradient(135deg,#00bfa5,#00e5ff);
+  color: #fff;
+}
+
+/* ===== SHARE BUTTON ===== */
+#agentSection button {
+  background: linear-gradient(135deg,#00c853,#00e676);
+  color: #fff;
+
+  border-radius: 25px;
+  font-weight: 600;
+
+  box-shadow: 0 8px 20px rgba(0,200,83,0.3);
+}
+
+/* ===== HOVER EFFECT ===== */
+#agentSection .summary-card:hover,
+#agentSection .invite-card:hover {
+  transform: translateY(-3px);
+  transition: 0.2s;
+}
+
+/* DEFAULT */
+body {
+  background: #f4f7fb;
+}
+
+/* ONLY AGENT PAGE BACKGROUND */
+#agentSection::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("images/agent.background.jpg") no-repeat center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* ONLY EXCHANGE PAGE */
+#exchangeSection::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("images/background.usdt.jpg") no-repeat center;
+  background-size: cover;
+  z-index: -1;
+}
+/* ===== HOME PAGE BLACK BACKGROUND ===== */
+#homeSection {
+  background: #0a0a0a !important;   /* deep black */
+  min-height: 100vh;
+}
+
+/* optional gradient premium look */
+#homeSection {
+  background: linear-gradient(180deg, #0a0a0a, #121212) !important;
+}
+/* text visible */
+#homeSection h1,
+#homeSection h2,
+#homeSection h3,
+#homeSection p,
+#homeSection span {
+  color: #ffffff;
+}
+
+/* cards dark premium */
+#homeSection .card,
+#homeSection .notice-card,
+#homeSection .bridge-card,
+#homeSection .feature-card {
+  background: linear-gradient(145deg, #111, #000);
+  border-radius: 20px;
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.9),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.main-btn {
+  background: linear-gradient(135deg,#00ffc8,#00bfa5);
+  box-shadow: 0 0 25px rgba(0,255,200,0.5);
+}
+
+
+
+
+
+
+
+
+
+/* ===== HEADER (TOP GREEN BOX) ===== */
+#meSection .me-header {
+  background: linear-gradient(135deg, rgba(0,255,180,0.8), rgba(0,200,150,0.8));
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  color: #003c30;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+#meSection .me-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #002f26;
+}
+
+#meSection .me-header p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #004d40;
+}
+
+/* ===== MAIN CARD ===== */
+#meSection .me-card {
+  margin-top: 15px;
+  padding: 15px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ===== EACH OPTION ===== */
+#meSection .me-item {
+  background: rgba(255,255,255,0.95);
+  color: #111;
+
+  padding: 14px 16px;
+  border-radius: 12px;
+
+  font-weight: 700;
+  font-size: 15px;
+
+  margin-bottom: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+#meSection .me-item:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ===== LOGOUT BUTTON ===== */
+#meSection .logout-btn {
+  margin-top: 20px;
+  width: 100%;
+
+  background: linear-gradient(135deg, #00e5b0, #00bfa5);
+  color: #003c30;
+
+  font-weight: 800;
+  font-size: 16px;
+
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+
+  box-shadow: 0 5px 20px rgba(0,200,150,0.4);
+}
+
+/* ===== TEXT VISIBILITY BOOST ===== */
+#meSection {
+  color: #ffffff;
+}
+
+/* Optional: make icons visible */
+#meSection .me-item span,
+#meSection .me-item {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== BACKGROUND IMAGE (FORCE SHOW) ===== */
+#meSection::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("images/me.bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+}
+
+/* ===== REMOVE WHITE BG ===== */
+body, html {
+  background: transparent !important;
+}
+
+/* ===== CONTENT ABOVE ===== */
+#meSection .me-header,
+#meSection .me-card,
+#meSection .logout-btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== CARD STYLE ===== */
+#meSection .me-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+}
+
+/* ===== ITEMS ===== */
+#meSection .me-item {
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* ===== LOGOUT ===== */
+#meSection .logout-btn {
+  background: linear-gradient(135deg, #00e5b0, #00bfa5);
+  color: #003c30;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== REMOVE GLOBAL BACKGROUND ===== */
+body, .page {
+  background: none !important;
+}
+
+/* ===== APPLY BG ONLY REQUIRED PAGES ===== */
+#exchangeSection,
+#depositExchangeSection,
+#bankSection,
+#ordersSection,
+#changePasswordSection {
+  background-image: url("images/background.usdt.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  min-height: 100vh;
+}
+
+/* ===== DO NOT TOUCH THESE ===== */
+#homeSection,
+#agentSection,
+#meSection {
+  background: none !important;
+}
+
+/* ===== GLOBAL BACKGROUND (ALL PAGES) ===== */
+body {
+  background: radial-gradient(circle at top, #0f2027, #203a43, #0a0f1c);
+}
+
+/* ===== KEEP HOME SAME (NO CHANGE) ===== */
+#homeSection {
+  background: transparent;
+}
+
+/* ===== APPLY SAME BG TO ALL OTHER PAGES ===== */
+#exchangeSection,
+#depositExchangeSection,
+#bankSection,
+#ordersSection,
+#changePasswordSection {
+  background: transparent;
+  min-height: 100vh;
+}
+
+/* ===== DO NOT CHANGE THESE ===== */
+#agentSection,
+#meSection {
+  background: transparent !important;
+}
+
+
+
+/* ===== GLOBAL DARK BACKGROUND (ALL PAGES) ===== */
+body {
+  background: #0a0f1c;
+}
+
+/* ===== MAIN BACKGROUND LAYER ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:black ;
+  
+  z-index: -999;
+}
+
+/* ===== IMPORTANT FIX ===== */
+/* सभी pages transparent होंगे ताकि body दिखे */
+.page {
+  background: transparent !important;
+}
+
+/* ===== KEEP HOME DESIGN SAFE ===== */
+#homeSection {
+  background: transparent !important;
+}
+
+/* ===== AGENT + ME ALSO SAFE ===== */
+#agentSection,
+#meSection {
+  background: transparent !important;
+}
+
+
+/* ===== REMOVE ALL DEFAULT PAGE BACKGROUND ===== */
+.page {
+  background: transparent !important;
+}
+
+/* ===== APPLY BG ONLY TO SPECIFIC PAGES ===== */
+#exchangeSection,
+#depositExchangeSection,
+#bankSection,
+#ordersSection,
+#changePasswordSection {
+  background: url("images/background.usdt.jpg") center/cover no-repeat fixed;
+}
+
+/* ===== PREVENT BG ON THESE PAGES ===== */
+#homeSection,
+#agentSection,
+#meSection {
+  background: none !important;
+}
+
+
+/* ===== FORCE FULL WIDTH LAYOUT ===== */
+.page {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* ===== REMOVE BLACK BACKGROUND ===== */
+body {
+  background: #f5f7fa !important; /* clean light bg */
+}
+
+/* ===== CENTER CONTENT LIKE MOBILE APP ===== */
+.page > * {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== OPTIONAL: HOME DARK CARD ONLY ===== */
+.bridge-card {
+  background: linear-gradient(145deg, #0f172a, #111827);
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== FIX ME PAGE LAYOUT ===== */
+#meSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: flex-start;
+}
+
+/* ===== FIX LOGOUT BUTTON POSITION ===== */
+.logout-btn {
+  width: 80%;
+  max-width: 400px;
+  margin: 30px auto 0 auto;  /* center + spacing */
+  display: block;
+  text-align: center;
+}
+
+/* ===== FIX CARD CENTER ===== */
+.me-card {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+.logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== RESET PASSWORD PAGE FIX ===== */
+#changePasswordSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FORM CONTAINER */
+#changePasswordSection input,
+#changePasswordSection button {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* INPUT STYLE */
+#changePasswordSection input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.9);
+  font-size: 14px;
+}
+
+/* BUTTON STYLE */
+#changePasswordSection button {
+  background: linear-gradient(90deg, #00e5ff, #00c896);
+  color: #fff;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* TITLE CENTER */
+#changePasswordSection h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#changePasswordSection input {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.2);
+  color: #000;
+}
+
+
+
+
+
+/* ===== FIX FAQ VISIBILITY ===== */
+
+.faq-section {
+  width: 100%;
+  max-width: 420px;
+  margin: 20px auto;
+}
+
+/* QUESTION BOX */
+.faq-item {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #000;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* ANSWER BOX */
+.faq-answer {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #111;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ===== EXCHANGE PROCESS FIX ===== */
+.exchange-process {
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 420px;
+  color: #000;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* LIST TEXT */
+.exchange-process li {
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* TITLE */
+.process-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+
+/* FAQ ANSWER (hidden by default but visible when opened) */
+#exchangeSection .faq-answer {
+  color: #000 !important;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 6px;
+
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* When JS opens (display:block), it will look perfect */
+#exchangeSection .faq-answer[style*="block"] {
+  display: block !important;
+}
+
+#exchangeSection .faq-item {
+  background: rgba(255,255,255,0.95);
+  color: #000 !important;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* FIX FAQ QUESTION TEXT */
+#exchangeSection .faq-item span {
+  color: #000 !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+/* FIX PLUS ICON */
+#exchangeSection .faq-item span:last-child {
+  color: #007bff !important;
+  font-size: 18px !important;
+}
+
+/* FIX BACKGROUND */
+#exchangeSection .faq-item {
+  background: rgba(255,255,255,0.95) !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+}
+
+
+
+
 
