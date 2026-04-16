@@ -3263,7 +3263,7 @@ font-size:13px;
 /* ===== DARK OVERLAY ===== */
 #exchangeSection::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
 
   background: rgba(0,0,0,0.35);
