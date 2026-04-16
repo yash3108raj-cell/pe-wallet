@@ -61,15 +61,16 @@
 <div id="exchangeSection" class="page" style="display:none;">
 
   <!-- Header -->
-  <div class="exchange-header">
-    <h2>Exchange</h2>
-  </div>
+ <div class="exchange-title-box">
+    <h1 class="exchange-title">💱 Exchange </h1>
+    <p class="exchange-subtitle"></p>
+</div>
 
   <!-- Rate Card -->
   <div class="rate-card">
     <div>
       <p class="small">Platform Rate</p>
-      <h3>1 USDT = ₹105.5</h3>
+      <h3>1 USDT = ₹98.5</h3>
     </div>
     <button class="deposit-btn-small" onclick="openDepositExchange()" >Deposit</button>
   </div>
@@ -127,14 +128,47 @@
     <p class="limit">Min: ₹1,000 / Max: ₹50,000</p>
 
 
+  <div class="deposit-btn-wrap" style="margin-bottom:5px;">
+  <button class="deposit-btn" onclick="confirmExchange()">
+    Confirm Exchange
+  </button>
+</div>
+
 
   </div>
 
   
-     <div class="deposit-btn-wrap" style="margin-bottom:90px;">
-  <button class="deposit-btn" onclick="confirmExchange()">
-    Confirm Exchange
-  </button>
+   
+
+<!-- FAQ Section -->
+<div class="faq-section">
+
+  <!-- Question 1 -->
+  <div class="faq-item" onclick="toggleFaq(1)">
+    <span>1. How do I sell?</span>
+    <span id="faqIcon1">+</span>
+  </div>
+
+  <div id="faqAnswer1" class="faq-answer" style="display:none;">
+    To learn how to sell.<br>
+
+    Please go to the Sell page.<br>
+    
+    You will find a complete tutorial with step-by-step images and video guidance to help you finish the selling process easily.
+  </div>
+
+  <!-- Question 2 -->
+  <div class="faq-item" onclick="toggleFaq(2)">
+    <span>2. How do I add a UPI ID?</span>
+    <span id="faqIcon2">+</span>
+  </div>
+
+  <div id="faqAnswer2" class="faq-answer" style="display:none;">
+    To add a UPI ID, go to the <b>Me</b> section and open <b>Manage Bank Cards</b>.<br>
+    Click <b>Add UPI</b>, enter your UPI ID and save it.<br>
+    After saving, you can use it as your receiving payment method.
+  </div>
+
 </div>
 
 
@@ -188,7 +222,7 @@
 </div>   -->
 
     <p class="small">Platform Rate</p>
-    <h3>1 USDT = ₹105.5</h3>
+    <h3>1 USDT = ₹98.5</h3>
   </div>
 
 <div id="usdtSection">
@@ -232,7 +266,7 @@
     </div>
 
     <h1 id="inrOutput">₹0</h1>
-    <p class="small">Rate: 1 USDT = ₹105.5</p>
+    <p class="small">Rate: 1 USDT = ₹98.5</p>
   </div>
 
   <!-- PROCESS -->
