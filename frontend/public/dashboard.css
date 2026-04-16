@@ -2627,7 +2627,7 @@ body {
 
 #userBalance {
   font-weight: bold;
-  color: #00a86b;
+  color: #7cedc9;
  
 }
 
@@ -3596,7 +3596,7 @@ body {
 
 /* ===== LOGOUT BUTTON ===== */
 #meSection .logout-btn {
-  margin-top: 20px;
+  margin-top: 300px;
   width: 100%;
 
   background: linear-gradient(135deg, #00e5b0, #00bfa5);
@@ -3693,8 +3693,8 @@ body, html {
 
 /* ===== LOGOUT ===== */
 #meSection .logout-btn {
-  background: linear-gradient(135deg, #00e5b0, #00bfa5);
-  color: #003c30;
+  background: linear-gradient(135deg, #e92626, #f12222);
+  color: whitesmoke;
 }
 
 
@@ -3712,12 +3712,12 @@ body, .page {
 }
 
 /* ===== APPLY BG ONLY REQUIRED PAGES ===== */
-#exchangeSection,
+
 #depositExchangeSection,
 #bankSection,
 #ordersSection,
 #changePasswordSection {
-  background-image: url("images/background.usdt.jpg") !important;
+  background-image: url("images/me.bg.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -4059,3 +4059,11 @@ body {
 
 
 
+/* FIX BACKGROUND REPEAT */
+body {
+  background-image: url('./images/background.usdt.jpg'); /* अपना image path */
+  background-size: cover;        /* full screen cover */
+  background-repeat: no-repeat;  /* repeat बंद */
+  background-position: center;   /* center align */
+  background-attachment: fixed;  /* smooth feel */
+}
