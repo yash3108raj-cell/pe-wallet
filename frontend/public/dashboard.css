@@ -3251,7 +3251,7 @@ font-size:13px;
 /* ===== BACKGROUND IMAGE (ONLY EXCHANGE) ===== */
 #exchangeSection::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
 
   background: url("images/background.usdt.jpg") no-repeat center center;
