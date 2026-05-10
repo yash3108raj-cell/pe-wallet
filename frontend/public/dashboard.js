@@ -410,7 +410,7 @@ showExchange = function(el) {
 
                                                             /* USDT RATE GLOBAL */
 
-const RATE = 105.5;
+const RATE = 110;
 
 /* open deposit exchange page */
 function openDepositExchange() {
